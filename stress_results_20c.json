@@ -1,0 +1,368 @@
+{
+  "mode": "single",
+  "summary": {
+    "base_url": "http://127.0.0.1:8000",
+    "model": "Qwen2.5-3B-Instruct",
+    "structured": false,
+    "concurrency": 20,
+    "total_requests": 20,
+    "duration_sec": 0.61,
+    "ok": 20,
+    "failed": 0,
+    "error_rate_percent": 0.0,
+    "schema_ok_count": null,
+    "aggregate_tokens_per_sec": 484.5,
+    "ttft_avg_ms": 85.16,
+    "ttft_p50_ms": 89.06,
+    "ttft_p95_ms": 91.1,
+    "ttft_p99_ms": 95.18,
+    "ttft_max_ms": 95.18,
+    "tps_avg": 40.892,
+    "tps_p50": 40.958,
+    "tps_p95": 41.277,
+    "tps_min": 40.235,
+    "system_load": {
+      "samples": 5,
+      "interval_s": 0.25,
+      "cpu_percent": {
+        "min": 9.1,
+        "avg": 13.36,
+        "max": 15.6
+      },
+      "ram_used_gb": {
+        "min": 14.49,
+        "avg": 14.5,
+        "max": 14.52
+      },
+      "ram_percent": {
+        "min": 23.2,
+        "avg": 23.2,
+        "max": 23.2
+      },
+      "ram_total_gb": 62.58,
+      "gpu_util_percent": {
+        "min": 0.0,
+        "avg": 60.0,
+        "max": 100.0
+      },
+      "vram_used_mb": {
+        "min": 19534.0,
+        "avg": 19534.0,
+        "max": 19534.0
+      },
+      "vram_used_gb": {
+        "min": 19.076,
+        "avg": 19.076,
+        "max": 19.076
+      },
+      "vram_total_mb": 20475.0,
+      "vram_total_gb": 19.995,
+      "gpu_temp_c": {
+        "min": 50.0,
+        "avg": 51.8,
+        "max": 53.0
+      }
+    },
+    "sample_outputs": [
+      {
+        "id": 16,
+        "prompt": "Explain the same idea with fewer words and no filler.",
+        "text": "Simplify and remove extra words."
+      },
+      {
+        "id": 2,
+        "prompt": "Our team reduced latency by optimizing the cache and batching requests.",
+        "text": "Our team reduced latency through optimized caching and batched requests."
+      },
+      {
+        "id": 8,
+        "prompt": "We observed higher GPU utilization after enabling continuous batching.",
+        "text": "We noted increased GPU utilization following the activation of continuous batching."
+      },
+      {
+        "id": 3,
+        "prompt": "Customer support should acknowledge the issue and offer a clear next step.",
+        "text": "Customer support should acknowledge the issue and provide a clear next step."
+      },
+      {
+        "id": 11,
+        "prompt": "Please make this sentence easier to understand for a first-time caller.",
+        "text": "Could you simplify this sentence for someone making their first call?"
+      }
+    ],
+    "errors": []
+  },
+  "verdict": {
+    "ttft_budget_ms": 500.0,
+    "min_tps": 4.0,
+    "checks": {
+      "all_ok": true,
+      "ttft_p95_under_budget": true,
+      "min_tps_met": true,
+      "avg_tps_met": true
+    },
+    "passed": true
+  },
+  "per_request": [
+    {
+      "id": 16,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 87.82,
+      "total_ms": 281.96,
+      "completion_tokens": 8,
+      "tokens_per_sec": 41.207,
+      "text": "Simplify and remove extra words.",
+      "prompt_text": "Explain the same idea with fewer words and no filler.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 59.37,
+      "total_ms": 381.5,
+      "completion_tokens": 13,
+      "tokens_per_sec": 40.357,
+      "text": "Our team reduced latency through optimized caching and batched requests.",
+      "prompt_text": "Our team reduced latency by optimizing the cache and batching requests.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 8,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 90.52,
+      "total_ms": 405.38,
+      "completion_tokens": 13,
+      "tokens_per_sec": 41.288,
+      "text": "We noted increased GPU utilization following the activation of continuous batching.",
+      "prompt_text": "We observed higher GPU utilization after enabling continuous batching.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 58.92,
+      "total_ms": 406.87,
+      "completion_tokens": 14,
+      "tokens_per_sec": 40.235,
+      "text": "Customer support should acknowledge the issue and provide a clear next step.",
+      "prompt_text": "Customer support should acknowledge the issue and offer a clear next step.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 11,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 89.0,
+      "total_ms": 405.52,
+      "completion_tokens": 13,
+      "tokens_per_sec": 41.072,
+      "text": "Could you simplify this sentence for someone making their first call?",
+      "prompt_text": "Please make this sentence easier to understand for a first-time caller.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 1,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 59.82,
+      "total_ms": 407.51,
+      "completion_tokens": 14,
+      "tokens_per_sec": 40.266,
+      "text": "Please schedule the meeting for next Tuesday afternoon if it suits everyone.",
+      "prompt_text": "Please schedule the meeting for next Tuesday afternoon if everyone is free.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 19,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 88.11,
+      "total_ms": 404.26,
+      "completion_tokens": 13,
+      "tokens_per_sec": 41.12,
+      "text": "Rewrite this technical description in simple language for general users.",
+      "prompt_text": "Convert this technical blurb into plain English for end users.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 13,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 90.46,
+      "total_ms": 405.4,
+      "completion_tokens": 13,
+      "tokens_per_sec": 41.277,
+      "text": "Redraft this update for inclusion in our leadership status email.",
+      "prompt_text": "Rewrite this update for a status email to leadership.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 6,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 90.27,
+      "total_ms": 431.19,
+      "completion_tokens": 14,
+      "tokens_per_sec": 41.065,
+      "text": "The product launch has been postponed due to a supply chain bottleneck.",
+      "prompt_text": "The product launch is delayed because of a supply-chain bottleneck.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 5,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 89.04,
+      "total_ms": 431.44,
+      "completion_tokens": 14,
+      "tokens_per_sec": 40.888,
+      "text": "I require a more concise version of this email that maintains professionalism.",
+      "prompt_text": "I need a shorter version of this email that still sounds professional.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 0,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 95.18,
+      "total_ms": 460.74,
+      "completion_tokens": 15,
+      "tokens_per_sec": 41.033,
+      "text": "The quick brown fox jumps over the lazy dog by the riverbank.",
+      "prompt_text": "The quick brown fox jumps over the lazy dog near the riverbank.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 17,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 88.14,
+      "total_ms": 454.9,
+      "completion_tokens": 15,
+      "tokens_per_sec": 40.898,
+      "text": "The agent must verify the caller's ZIP code prior to the transfer.",
+      "prompt_text": "The agent should confirm the caller's ZIP code before transferring.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 15,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 89.06,
+      "total_ms": 455.29,
+      "completion_tokens": 15,
+      "tokens_per_sec": 40.958,
+      "text": "Please rewrite this note as a courteous follow-up message to the client.",
+      "prompt_text": "Turn this note into a polite follow-up message to the client.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 12,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 89.07,
+      "total_ms": 455.82,
+      "completion_tokens": 15,
+      "tokens_per_sec": 40.899,
+      "text": "Throughput increased after prefix caching began reusing the shared system prompt.",
+      "prompt_text": "Throughput improved once prefix caching reused the shared system prompt.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 10,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 90.02,
+      "total_ms": 480.31,
+      "completion_tokens": 16,
+      "tokens_per_sec": 40.994,
+      "text": "The applicant inquired if dental and vision services are covered by the plan.",
+      "prompt_text": "The applicant asked whether dental and vision are included in the plan.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 7,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 90.8,
+      "total_ms": 506.32,
+      "completion_tokens": 17,
+      "tokens_per_sec": 40.912,
+      "text": "Could you rephrase this to sound more assertive and less apologetic?",
+      "prompt_text": "Can you rewrite this so it sounds more confident and less apologetic?",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 4,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 90.12,
+      "total_ms": 506.95,
+      "completion_tokens": 17,
+      "tokens_per_sec": 40.784,
+      "text": "Given the stormy weather forecast, outdoor events might need to be relocated indoors.",
+      "prompt_text": "The weather looks stormy, so outdoor events may need to move indoors.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 18,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 88.45,
+      "total_ms": 504.61,
+      "completion_tokens": 17,
+      "tokens_per_sec": 40.849,
+      "text": "Could you please say this in a way that sounds natural for a phone call?",
+      "prompt_text": "Make this sound natural for a phone conversation.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 9,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 91.1,
+      "total_ms": 530.28,
+      "completion_tokens": 18,
+      "tokens_per_sec": 40.985,
+      "text": "Summarize the risks in simple terms that even people without technical knowledge will understand.",
+      "prompt_text": "Summarize the risk without using jargon that non-technical readers will miss.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 14,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 87.99,
+      "total_ms": 578.83,
+      "completion_tokens": 20,
+      "tokens_per_sec": 40.746,
+      "text": "The model must maintain a Time-To-First-Token of less than half a second during load.",
+      "prompt_text": "The model must keep Time-To-First-Token under half a second under load.",
+      "parsed": null,
+      "schema_ok": null
+    }
+  ]
+}

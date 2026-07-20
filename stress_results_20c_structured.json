@@ -1,0 +1,421 @@
+{
+  "mode": "single",
+  "summary": {
+    "base_url": "http://127.0.0.1:8000",
+    "model": "Qwen2.5-3B-Instruct",
+    "structured": true,
+    "concurrency": 20,
+    "total_requests": 20,
+    "duration_sec": 1.88,
+    "ok": 20,
+    "failed": 0,
+    "error_rate_percent": 0.0,
+    "schema_ok_count": 20,
+    "aggregate_tokens_per_sec": 463.47,
+    "ttft_avg_ms": 228.11,
+    "ttft_p50_ms": 228.31,
+    "ttft_p95_ms": 230.68,
+    "ttft_p99_ms": 232.09,
+    "ttft_max_ms": 232.09,
+    "tps_avg": 34.571,
+    "tps_p50": 34.808,
+    "tps_p95": 35.389,
+    "tps_min": 32.146,
+    "sample_outputs": [
+      {
+        "id": 18,
+        "prompt": "Make this sound natural for a phone conversation.",
+        "text": "{\n  \"original\": \"Make this sound natural for a phone conversation.\",\n  \"rephrased\": \"Make this sound natural for a phone call.\"\n}",
+        "parsed": {
+          "original": "Make this sound natural for a phone conversation.",
+          "rephrased": "Make this sound natural for a phone call."
+        },
+        "schema_ok": true,
+        "rephrased": "Make this sound natural for a phone call.",
+        "original": "Make this sound natural for a phone conversation."
+      },
+      {
+        "id": 2,
+        "prompt": "Our team reduced latency by optimizing the cache and batching requests.",
+        "text": "{\n  \"original\": \"Our team reduced latency by optimizing the cache and batching requests.\",\n  \"rephrased\": \"Our team minimized latency through improved caching and request aggregation.\"\n}",
+        "parsed": {
+          "original": "Our team reduced latency by optimizing the cache and batching requests.",
+          "rephrased": "Our team minimized latency through improved caching and request aggregation."
+        },
+        "schema_ok": true,
+        "rephrased": "Our team minimized latency through improved caching and request aggregation.",
+        "original": "Our team reduced latency by optimizing the cache and batching requests."
+      },
+      {
+        "id": 19,
+        "prompt": "Convert this technical blurb into plain English for end users.",
+        "text": "{\n  \"original\": \"Convert this technical blurb into plain English for end users.\",\n  \"rephrased\": \"Make this technical description easy to understand for regular users.\"\n}",
+        "parsed": {
+          "original": "Convert this technical blurb into plain English for end users.",
+          "rephrased": "Make this technical description easy to understand for regular users."
+        },
+        "schema_ok": true,
+        "rephrased": "Make this technical description easy to understand for regular users.",
+        "original": "Convert this technical blurb into plain English for end users."
+      },
+      {
+        "id": 13,
+        "prompt": "Rewrite this update for a status email to leadership.",
+        "text": "{\n  \"original\": \"Rewrite this update for a status email to leadership.\",\n  \"rephrased\": \"Draft an updated version of the status email for our leadership team.\"\n}",
+        "parsed": {
+          "original": "Rewrite this update for a status email to leadership.",
+          "rephrased": "Draft an updated version of the status email for our leadership team."
+        },
+        "schema_ok": true,
+        "rephrased": "Draft an updated version of the status email for our leadership team.",
+        "original": "Rewrite this update for a status email to leadership."
+      },
+      {
+        "id": 16,
+        "prompt": "Explain the same idea with fewer words and no filler.",
+        "text": "{\n  \"original\": \"Explain the same idea with fewer words and no filler.\",\n  \"rephrased\": \"Simplify the explanation to fewer words without any extra content.\"\n}",
+        "parsed": {
+          "original": "Explain the same idea with fewer words and no filler.",
+          "rephrased": "Simplify the explanation to fewer words without any extra content."
+        },
+        "schema_ok": true,
+        "rephrased": "Simplify the explanation to fewer words without any extra content.",
+        "original": "Explain the same idea with fewer words and no filler."
+      }
+    ],
+    "errors": []
+  },
+  "verdict": {
+    "ttft_budget_ms": 500.0,
+    "min_tps": 4.0,
+    "checks": {
+      "all_ok": true,
+      "ttft_p95_under_budget": true,
+      "min_tps_met": true,
+      "avg_tps_met": true
+    },
+    "passed": true
+  },
+  "per_request": [
+    {
+      "id": 18,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 225.06,
+      "total_ms": 1250.39,
+      "completion_tokens": 34,
+      "tokens_per_sec": 33.16,
+      "text": "{\n  \"original\": \"Make this sound natural for a phone conversation.\",\n  \"rephrased\": \"Make this sound natural for a phone call.\"\n}",
+      "prompt_text": "Make this sound natural for a phone conversation.",
+      "parsed": {
+        "original": "Make this sound natural for a phone conversation.",
+        "rephrased": "Make this sound natural for a phone call."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 2,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 228.59,
+      "total_ms": 1359.66,
+      "completion_tokens": 39,
+      "tokens_per_sec": 34.481,
+      "text": "{\n  \"original\": \"Our team reduced latency by optimizing the cache and batching requests.\",\n  \"rephrased\": \"Our team minimized latency through improved caching and request aggregation.\"\n}",
+      "prompt_text": "Our team reduced latency by optimizing the cache and batching requests.",
+      "parsed": {
+        "original": "Our team reduced latency by optimizing the cache and batching requests.",
+        "rephrased": "Our team minimized latency through improved caching and request aggregation."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 19,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 227.57,
+      "total_ms": 1356.67,
+      "completion_tokens": 39,
+      "tokens_per_sec": 34.541,
+      "text": "{\n  \"original\": \"Convert this technical blurb into plain English for end users.\",\n  \"rephrased\": \"Make this technical description easy to understand for regular users.\"\n}",
+      "prompt_text": "Convert this technical blurb into plain English for end users.",
+      "parsed": {
+        "original": "Convert this technical blurb into plain English for end users.",
+        "rephrased": "Make this technical description easy to understand for regular users."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 13,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 226.4,
+      "total_ms": 1383.45,
+      "completion_tokens": 40,
+      "tokens_per_sec": 34.571,
+      "text": "{\n  \"original\": \"Rewrite this update for a status email to leadership.\",\n  \"rephrased\": \"Draft an updated version of the status email for our leadership team.\"\n}",
+      "prompt_text": "Rewrite this update for a status email to leadership.",
+      "parsed": {
+        "original": "Rewrite this update for a status email to leadership.",
+        "rephrased": "Draft an updated version of the status email for our leadership team."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 16,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 228.22,
+      "total_ms": 1383.04,
+      "completion_tokens": 40,
+      "tokens_per_sec": 34.637,
+      "text": "{\n  \"original\": \"Explain the same idea with fewer words and no filler.\",\n  \"rephrased\": \"Simplify the explanation to fewer words without any extra content.\"\n}",
+      "prompt_text": "Explain the same idea with fewer words and no filler.",
+      "parsed": {
+        "original": "Explain the same idea with fewer words and no filler.",
+        "rephrased": "Simplify the explanation to fewer words without any extra content."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 8,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 229.78,
+      "total_ms": 1384.53,
+      "completion_tokens": 40,
+      "tokens_per_sec": 34.639,
+      "text": "{\n  \"original\": \"We observed higher GPU utilization after enabling continuous batching.\",\n  \"rephrased\": \"We noted an increase in GPU utilization following the activation of continuous batching.\"\n}",
+      "prompt_text": "We observed higher GPU utilization after enabling continuous batching.",
+      "parsed": {
+        "original": "We observed higher GPU utilization after enabling continuous batching.",
+        "rephrased": "We noted an increase in GPU utilization following the activation of continuous batching."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 15,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 227.21,
+      "total_ms": 1433.83,
+      "completion_tokens": 42,
+      "tokens_per_sec": 34.808,
+      "text": "{\n  \"original\": \"Turn this note into a polite follow-up message to the client.\",\n  \"rephrased\": \"Transform this note into a courteous follow-up message for the client.\"\n}",
+      "prompt_text": "Turn this note into a polite follow-up message to the client.",
+      "parsed": {
+        "original": "Turn this note into a polite follow-up message to the client.",
+        "rephrased": "Transform this note into a courteous follow-up message for the client."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 17,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 227.39,
+      "total_ms": 1460.99,
+      "completion_tokens": 43,
+      "tokens_per_sec": 34.857,
+      "text": "{\n  \"original\": \"The agent should confirm the caller's ZIP code before transferring.\",\n  \"rephrased\": \"The agent must verify the caller's ZIP code prior to making the transfer.\"\n}",
+      "prompt_text": "The agent should confirm the caller's ZIP code before transferring.",
+      "parsed": {
+        "original": "The agent should confirm the caller's ZIP code before transferring.",
+        "rephrased": "The agent must verify the caller's ZIP code prior to making the transfer."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 11,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 226.57,
+      "total_ms": 1462.13,
+      "completion_tokens": 43,
+      "tokens_per_sec": 34.802,
+      "text": "{\n  \"original\": \"Please make this sentence easier to understand for a first-time caller.\",\n  \"rephrased\": \"Make this sentence simpler for someone who is calling for the first time.\"\n}",
+      "prompt_text": "Please make this sentence easier to understand for a first-time caller.",
+      "parsed": {
+        "original": "Please make this sentence easier to understand for a first-time caller.",
+        "rephrased": "Make this sentence simpler for someone who is calling for the first time."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 5,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 228.85,
+      "total_ms": 1463.5,
+      "completion_tokens": 43,
+      "tokens_per_sec": 34.828,
+      "text": "{\n  \"original\": \"I need a shorter version of this email that still sounds professional.\",\n  \"rephrased\": \"I require a concise version of this email while maintaining its professional tone.\"\n}",
+      "prompt_text": "I need a shorter version of this email that still sounds professional.",
+      "parsed": {
+        "original": "I need a shorter version of this email that still sounds professional.",
+        "rephrased": "I require a concise version of this email while maintaining its professional tone."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 230.31,
+      "total_ms": 1464.0,
+      "completion_tokens": 43,
+      "tokens_per_sec": 34.855,
+      "text": "{\n  \"original\": \"Customer support should acknowledge the issue and offer a clear next step.\",\n  \"rephrased\": \"Customer support must recognize the problem and provide a concise follow-up action.\"\n}",
+      "prompt_text": "Customer support should acknowledge the issue and offer a clear next step.",
+      "parsed": {
+        "original": "Customer support should acknowledge the issue and offer a clear next step.",
+        "rephrased": "Customer support must recognize the problem and provide a concise follow-up action."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 12,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 227.01,
+      "total_ms": 1462.46,
+      "completion_tokens": 43,
+      "tokens_per_sec": 34.805,
+      "text": "{\n  \"original\": \"Throughput improved once prefix caching reused the shared system prompt.\",\n  \"rephrased\": \"Throughput increased following the reuse of the shared system prompt by prefix caching.\"\n}",
+      "prompt_text": "Throughput improved once prefix caching reused the shared system prompt.",
+      "parsed": {
+        "original": "Throughput improved once prefix caching reused the shared system prompt.",
+        "rephrased": "Throughput increased following the reuse of the shared system prompt by prefix caching."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 6,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 228.54,
+      "total_ms": 1463.68,
+      "completion_tokens": 43,
+      "tokens_per_sec": 34.814,
+      "text": "{\n  \"original\": \"The product launch is delayed because of a supply-chain bottleneck.\",\n  \"rephrased\": \"The product launch has been postponed due to an issue in the supply chain.\"\n}",
+      "prompt_text": "The product launch is delayed because of a supply-chain bottleneck.",
+      "parsed": {
+        "original": "The product launch is delayed because of a supply-chain bottleneck.",
+        "rephrased": "The product launch has been postponed due to an issue in the supply chain."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 1,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 224.04,
+      "total_ms": 1487.44,
+      "completion_tokens": 45,
+      "tokens_per_sec": 35.618,
+      "text": "{\n  \"original\": \"Please schedule the meeting for next Tuesday afternoon if everyone is free.\",\n  \"rephrased\": \"Could you please arrange the meeting for Tuesday afternoon if it's convenient for everyone?\"\n}",
+      "prompt_text": "Please schedule the meeting for next Tuesday afternoon if everyone is free.",
+      "parsed": {
+        "original": "Please schedule the meeting for next Tuesday afternoon if everyone is free.",
+        "rephrased": "Could you please arrange the meeting for Tuesday afternoon if it's convenient for everyone?"
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 10,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 228.31,
+      "total_ms": 1510.75,
+      "completion_tokens": 45,
+      "tokens_per_sec": 35.089,
+      "text": "{\n  \"original\": \"The applicant asked whether dental and vision are included in the plan.\",\n  \"rephrased\": \"The applicant inquired about the inclusion of dental and vision benefits in the plan.\"\n}",
+      "prompt_text": "The applicant asked whether dental and vision are included in the plan.",
+      "parsed": {
+        "original": "The applicant asked whether dental and vision are included in the plan.",
+        "rephrased": "The applicant inquired about the inclusion of dental and vision benefits in the plan."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 0,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 232.09,
+      "total_ms": 1540.37,
+      "completion_tokens": 46,
+      "tokens_per_sec": 35.161,
+      "text": "{\n  \"original\": \"The quick brown fox jumps over the lazy dog near the riverbank.\",\n  \"rephrased\": \"The agile brown fox leaps over the dozy dog close to the riverbank.\"\n}",
+      "prompt_text": "The quick brown fox jumps over the lazy dog near the riverbank.",
+      "parsed": {
+        "original": "The quick brown fox jumps over the lazy dog near the riverbank.",
+        "rephrased": "The agile brown fox leaps over the dozy dog close to the riverbank."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 7,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 229.02,
+      "total_ms": 1586.36,
+      "completion_tokens": 48,
+      "tokens_per_sec": 35.363,
+      "text": "{\n  \"original\": \"Can you rewrite this so it sounds more confident and less apologetic?\",\n  \"rephrased\": \"Could you please rephrase this to sound more assertive and less apologetic?\"\n}",
+      "prompt_text": "Can you rewrite this so it sounds more confident and less apologetic?",
+      "parsed": {
+        "original": "Can you rewrite this so it sounds more confident and less apologetic?",
+        "rephrased": "Could you please rephrase this to sound more assertive and less apologetic?"
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 4,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 230.68,
+      "total_ms": 1587.03,
+      "completion_tokens": 48,
+      "tokens_per_sec": 35.389,
+      "text": "{\n  \"original\": \"The weather looks stormy, so outdoor events may need to move indoors.\",\n  \"rephrased\": \"Given the stormy weather forecast, some outdoor events might have to be relocated indoors.\"\n}",
+      "prompt_text": "The weather looks stormy, so outdoor events may need to move indoors.",
+      "parsed": {
+        "original": "The weather looks stormy, so outdoor events may need to move indoors.",
+        "rephrased": "Given the stormy weather forecast, some outdoor events might have to be relocated indoors."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 14,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 227.49,
+      "total_ms": 1845.1,
+      "completion_tokens": 52,
+      "tokens_per_sec": 32.146,
+      "text": "{\n  \"original\": \"The model must keep Time-To-First-Token under half a second under load.\",\n  \"rephrased\": \"The model should maintain a Time-To-First-Token of less than half a second during load conditions.\"\n}",
+      "prompt_text": "The model must keep Time-To-First-Token under half a second under load.",
+      "parsed": {
+        "original": "The model must keep Time-To-First-Token under half a second under load.",
+        "rephrased": "The model should maintain a Time-To-First-Token of less than half a second during load conditions."
+      },
+      "schema_ok": true
+    },
+    {
+      "id": 9,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 229.07,
+      "total_ms": 1872.25,
+      "completion_tokens": 54,
+      "tokens_per_sec": 32.863,
+      "text": "{\n  \"original\": \"Summarize the risk without using jargon that non-technical readers will miss.\",\n  \"rephrased\": \"Give a simple summary of the risk that even people who aren't experts won't find hard to understand.\"\n}",
+      "prompt_text": "Summarize the risk without using jargon that non-technical readers will miss.",
+      "parsed": {
+        "original": "Summarize the risk without using jargon that non-technical readers will miss.",
+        "rephrased": "Give a simple summary of the risk that even people who aren't experts won't find hard to understand."
+      },
+      "schema_ok": true
+    }
+  ]
+}
