@@ -1,0 +1,629 @@
+{
+  "mode": "sweep",
+  "backend": "cpu",
+  "host": {
+    "cpu_logical_cores": 20,
+    "cpu_physical_cores": 14,
+    "ram_total_gb": 62.58,
+    "ram_available_gb": 48.44
+  },
+  "server_config": {
+    "engine": "llama.cpp",
+    "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+    "threads": 20,
+    "parallel": 8,
+    "label": "qwen3b"
+  },
+  "stop_criteria": {
+    "stop_ttft_ms": 8000.0,
+    "stop_min_tps": 1.0
+  },
+  "limit_hit_at": null,
+  "stop_reason": null,
+  "max_stable_concurrency": 16,
+  "levels": [
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 1,
+      "total_requests": 1,
+      "duration_sec": 1.17,
+      "ok": 1,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 12.79,
+      "ttft_avg_ms": 83.67,
+      "ttft_p50_ms": 83.67,
+      "ttft_p95_ms": 83.67,
+      "ttft_p99_ms": 83.67,
+      "ttft_max_ms": 83.67,
+      "tps_avg": 14.064,
+      "tps_p50": 14.064,
+      "tps_p95": 14.064,
+      "tps_min": 14.064,
+      "system_load": {
+        "samples": 7,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 8.9,
+          "avg": 53.3,
+          "max": 79.1
+        },
+        "ram_used_gb": {
+          "min": 14.09,
+          "avg": 14.12,
+          "max": 14.16
+        },
+        "ram_percent": {
+          "min": 22.5,
+          "avg": 22.57,
+          "max": 22.6
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 3,
+      "total_requests": 3,
+      "duration_sec": 1.46,
+      "ok": 3,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 30.14,
+      "ttft_avg_ms": 89.26,
+      "ttft_p50_ms": 89.26,
+      "ttft_p95_ms": 89.55,
+      "ttft_p99_ms": 89.55,
+      "ttft_max_ms": 89.55,
+      "tps_avg": 11.816,
+      "tps_p50": 11.807,
+      "tps_p95": 11.863,
+      "tps_min": 11.779,
+      "system_load": {
+        "samples": 8,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 7.1,
+          "avg": 56.99,
+          "max": 78.5
+        },
+        "ram_used_gb": {
+          "min": 14.02,
+          "avg": 14.07,
+          "max": 14.13
+        },
+        "ram_percent": {
+          "min": 22.4,
+          "avg": 22.51,
+          "max": 22.6
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 5,
+      "total_requests": 5,
+      "duration_sec": 2.08,
+      "ok": 5,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 36.1,
+      "ttft_avg_ms": 154.85,
+      "ttft_p50_ms": 93.32,
+      "ttft_p95_ms": 401.88,
+      "ttft_p99_ms": 401.88,
+      "ttft_max_ms": 401.88,
+      "tps_avg": 9.341,
+      "tps_p50": 9.197,
+      "tps_p95": 10.29,
+      "tps_min": 8.84,
+      "system_load": {
+        "samples": 10,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 11.1,
+          "avg": 62.36,
+          "max": 77.9
+        },
+        "ram_used_gb": {
+          "min": 13.96,
+          "avg": 13.99,
+          "max": 14.05
+        },
+        "ram_percent": {
+          "min": 22.3,
+          "avg": 22.34,
+          "max": 22.4
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 7,
+      "total_requests": 7,
+      "duration_sec": 2.56,
+      "ok": 7,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 39.39,
+      "ttft_avg_ms": 527.61,
+      "ttft_p50_ms": 527.57,
+      "ttft_p95_ms": 528.98,
+      "ttft_p99_ms": 528.98,
+      "ttft_max_ms": 528.98,
+      "tps_avg": 8.252,
+      "tps_p50": 8.319,
+      "tps_p95": 8.544,
+      "tps_min": 7.941,
+      "system_load": {
+        "samples": 12,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 9.3,
+          "avg": 60.77,
+          "max": 79.6
+        },
+        "ram_used_gb": {
+          "min": 13.97,
+          "avg": 14.01,
+          "max": 14.05
+        },
+        "ram_percent": {
+          "min": 22.3,
+          "avg": 22.39,
+          "max": 22.5
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 9,
+      "total_requests": 9,
+      "duration_sec": 3.48,
+      "ok": 9,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 37.36,
+      "ttft_avg_ms": 569.31,
+      "ttft_p50_ms": 352.86,
+      "ttft_p95_ms": 2302.02,
+      "ttft_p99_ms": 2302.02,
+      "ttft_max_ms": 2302.02,
+      "tps_avg": 7.727,
+      "tps_p50": 7.176,
+      "tps_p95": 11.267,
+      "tps_min": 6.826,
+      "system_load": {
+        "samples": 15,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 9.0,
+          "avg": 67.77,
+          "max": 79.4
+        },
+        "ram_used_gb": {
+          "min": 13.99,
+          "avg": 14.02,
+          "max": 14.08
+        },
+        "ram_percent": {
+          "min": 22.4,
+          "avg": 22.42,
+          "max": 22.5
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 11,
+      "total_requests": 11,
+      "duration_sec": 5.98,
+      "ok": 11,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 27.43,
+      "ttft_avg_ms": 1452.18,
+      "ttft_p50_ms": 811.1,
+      "ttft_p95_ms": 3166.69,
+      "ttft_p99_ms": 3166.69,
+      "ttft_max_ms": 3166.69,
+      "tps_avg": 6.508,
+      "tps_p50": 5.942,
+      "tps_p95": 8.295,
+      "tps_min": 5.425,
+      "system_load": {
+        "samples": 24,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 8.9,
+          "avg": 70.05,
+          "max": 83.3
+        },
+        "ram_used_gb": {
+          "min": 13.96,
+          "avg": 14.0,
+          "max": 14.04
+        },
+        "ram_percent": {
+          "min": 22.3,
+          "avg": 22.38,
+          "max": 22.4
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 13,
+      "total_requests": 13,
+      "duration_sec": 6.59,
+      "ok": 13,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 28.82,
+      "ttft_avg_ms": 1993.16,
+      "ttft_p50_ms": 984.27,
+      "ttft_p95_ms": 3984.74,
+      "ttft_p99_ms": 3985.16,
+      "ttft_max_ms": 3985.16,
+      "tps_avg": 6.142,
+      "tps_p50": 5.811,
+      "tps_p95": 8.258,
+      "tps_min": 4.929,
+      "system_load": {
+        "samples": 26,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 9.1,
+          "avg": 73.1,
+          "max": 84.3
+        },
+        "ram_used_gb": {
+          "min": 13.96,
+          "avg": 14.03,
+          "max": 14.08
+        },
+        "ram_percent": {
+          "min": 22.3,
+          "avg": 22.41,
+          "max": 22.5
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 15,
+      "total_requests": 15,
+      "duration_sec": 7.41,
+      "ok": 15,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 30.37,
+      "ttft_avg_ms": 2489.99,
+      "ttft_p50_ms": 1136.91,
+      "ttft_p95_ms": 4649.29,
+      "ttft_p99_ms": 4987.76,
+      "ttft_max_ms": 4987.76,
+      "tps_avg": 5.794,
+      "tps_p50": 5.512,
+      "tps_p95": 8.205,
+      "tps_min": 4.5,
+      "system_load": {
+        "samples": 29,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 17.6,
+          "avg": 73.33,
+          "max": 84.9
+        },
+        "ram_used_gb": {
+          "min": 13.96,
+          "avg": 14.02,
+          "max": 14.05
+        },
+        "ram_percent": {
+          "min": 22.3,
+          "avg": 22.4,
+          "max": 22.5
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    },
+    {
+      "base_url": "http://127.0.0.1:8010",
+      "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+      "structured": false,
+      "structured_mode": null,
+      "concurrency": 16,
+      "total_requests": 16,
+      "duration_sec": 7.34,
+      "ok": 16,
+      "failed": 0,
+      "error_rate_percent": 0.0,
+      "schema_ok_count": null,
+      "aggregate_tokens_per_sec": 32.71,
+      "ttft_avg_ms": 2864.91,
+      "ttft_p50_ms": 3483.97,
+      "ttft_p95_ms": 5098.33,
+      "ttft_p99_ms": 5476.42,
+      "ttft_max_ms": 5476.42,
+      "tps_avg": 6.141,
+      "tps_p50": 6.435,
+      "tps_p95": 8.21,
+      "tps_min": 4.25,
+      "system_load": {
+        "samples": 28,
+        "interval_s": 0.25,
+        "cpu_logical_cores": 20,
+        "cpu_physical_cores": 14,
+        "cpu_percent": {
+          "min": 12.3,
+          "avg": 74.08,
+          "max": 84.8
+        },
+        "ram_used_gb": {
+          "min": 13.99,
+          "avg": 14.07,
+          "max": 14.14
+        },
+        "ram_percent": {
+          "min": 22.4,
+          "avg": 22.49,
+          "max": 22.6
+        },
+        "ram_total_gb": 62.58,
+        "gpu_util_percent": {
+          "min": 0.0,
+          "avg": 0.0,
+          "max": 0.0
+        },
+        "vram_used_mb": {
+          "min": 19368.0,
+          "avg": 19368.0,
+          "max": 19368.0
+        },
+        "vram_used_gb": {
+          "min": 18.914,
+          "avg": 18.914,
+          "max": 18.914
+        },
+        "vram_total_mb": 20475.0,
+        "vram_total_gb": 19.995,
+        "gpu_temp_c": {
+          "min": 47.0,
+          "avg": 47.0,
+          "max": 47.0
+        }
+      }
+    }
+  ]
+}

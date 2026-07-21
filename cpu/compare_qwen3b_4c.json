@@ -1,0 +1,172 @@
+{
+  "mode": "single",
+  "backend": "cpu",
+  "host": {
+    "cpu_logical_cores": 20,
+    "cpu_physical_cores": 14,
+    "ram_total_gb": 62.58,
+    "ram_available_gb": 48.565
+  },
+  "server_config": {
+    "engine": "llama.cpp",
+    "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+    "threads": 20,
+    "parallel": 8,
+    "label": "qwen3b"
+  },
+  "summary": {
+    "base_url": "http://127.0.0.1:8010",
+    "model": "Qwen2.5-3B-Instruct-Q4_K_M",
+    "structured": false,
+    "structured_mode": null,
+    "concurrency": 4,
+    "total_requests": 4,
+    "duration_sec": 3.24,
+    "ok": 4,
+    "failed": 0,
+    "error_rate_percent": 0.0,
+    "schema_ok_count": null,
+    "aggregate_tokens_per_sec": 17.91,
+    "ttft_avg_ms": 1444.6,
+    "ttft_p50_ms": 1297.54,
+    "ttft_p95_ms": 1893.3,
+    "ttft_p99_ms": 1893.3,
+    "ttft_max_ms": 1893.3,
+    "tps_avg": 8.893,
+    "tps_p50": 8.335,
+    "tps_p95": 11.238,
+    "tps_min": 7.872,
+    "system_load": {
+      "samples": 14,
+      "interval_s": 0.25,
+      "cpu_logical_cores": 20,
+      "cpu_physical_cores": 14,
+      "cpu_percent": {
+        "min": 9.5,
+        "avg": 70.86,
+        "max": 88.6
+      },
+      "ram_used_gb": {
+        "min": 13.98,
+        "avg": 14.07,
+        "max": 14.26
+      },
+      "ram_percent": {
+        "min": 22.3,
+        "avg": 22.49,
+        "max": 22.8
+      },
+      "ram_total_gb": 62.58,
+      "gpu_util_percent": {
+        "min": 0.0,
+        "avg": 0.0,
+        "max": 0.0
+      },
+      "vram_used_mb": {
+        "min": 19368.0,
+        "avg": 19368.0,
+        "max": 19368.0
+      },
+      "vram_used_gb": {
+        "min": 18.914,
+        "avg": 18.914,
+        "max": 18.914
+      },
+      "vram_total_mb": 20475.0,
+      "vram_total_gb": 19.995,
+      "gpu_temp_c": {
+        "min": 47.0,
+        "avg": 47.0,
+        "max": 47.0
+      }
+    },
+    "sample_outputs": [
+      {
+        "id": 2,
+        "prompt": "Our team reduced latency by optimizing the cache and batching requests.",
+        "text": "Our team reduced latency by optimizing the cache and batching requests."
+      },
+      {
+        "id": 3,
+        "prompt": "Customer support should acknowledge the issue and offer a clear next step.",
+        "text": "Customer support should acknowledge the issue and provide a clear next step."
+      },
+      {
+        "id": 0,
+        "prompt": "The quick brown fox jumps over the lazy dog near the riverbank.",
+        "text": "The quick brown fox jumps over the lazy dog by the riverbank."
+      },
+      {
+        "id": 1,
+        "prompt": "Please schedule the meeting for next Tuesday afternoon if everyone is free.",
+        "text": "Please schedule the meeting for next Tuesday afternoon if it is convenient for everyone."
+      }
+    ],
+    "errors": []
+  },
+  "verdict": {
+    "ttft_budget_ms": 2000.0,
+    "min_tps": 1.0,
+    "checks": {
+      "all_ok": true,
+      "ttft_p95_under_budget": true,
+      "min_tps_met": true,
+      "avg_tps_met": true
+    },
+    "passed": true
+  },
+  "per_request": [
+    {
+      "id": 2,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 1294.19,
+      "total_ms": 2945.63,
+      "completion_tokens": 13,
+      "tokens_per_sec": 7.872,
+      "text": "Our team reduced latency by optimizing the cache and batching requests.",
+      "prompt_text": "Our team reduced latency by optimizing the cache and batching requests.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 3,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 1893.3,
+      "total_ms": 3139.06,
+      "completion_tokens": 14,
+      "tokens_per_sec": 11.238,
+      "text": "Customer support should acknowledge the issue and provide a clear next step.",
+      "prompt_text": "Customer support should acknowledge the issue and offer a clear next step.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 0,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 1297.54,
+      "total_ms": 3143.38,
+      "completion_tokens": 15,
+      "tokens_per_sec": 8.126,
+      "text": "The quick brown fox jumps over the lazy dog by the riverbank.",
+      "prompt_text": "The quick brown fox jumps over the lazy dog near the riverbank.",
+      "parsed": null,
+      "schema_ok": null
+    },
+    {
+      "id": 1,
+      "ok": true,
+      "error": null,
+      "ttft_ms": 1293.37,
+      "total_ms": 3213.06,
+      "completion_tokens": 16,
+      "tokens_per_sec": 8.335,
+      "text": "Please schedule the meeting for next Tuesday afternoon if it is convenient for everyone.",
+      "prompt_text": "Please schedule the meeting for next Tuesday afternoon if everyone is free.",
+      "parsed": null,
+      "schema_ok": null
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Commands for concurrent rephrasing stress tests against vLLM.
+# GPU (vLLM) concurrent rephrasing stress tests.
 # All settings come from .env (override with exports if needed).
 #
 #   ./commands.sh setup
@@ -11,23 +11,22 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$ROOT/.." && pwd)"
 cd "$ROOT"
 
 # Load .env without clobbering variables already set in the shell
 load_env() {
   local env_file="${ENV_FILE:-$ROOT/.env}"
   if [[ ! -f "$env_file" ]]; then
-    echo "Missing $env_file — copy defaults or create one." >&2
+    echo "Missing $env_file — copy .env.example or create one." >&2
     exit 1
   fi
   while IFS= read -r line || [[ -n "$line" ]]; do
-    # skip blanks and comments
     [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
     local key="${line%%=*}"
     local val="${line#*=}"
     key="$(echo "$key" | xargs)"
     [[ -z "$key" ]] && continue
-    # do not override pre-set env
     if [[ -z "${!key+x}" ]]; then
       export "$key=$val"
     fi
@@ -37,7 +36,7 @@ load_env() {
 load_env
 
 # Prefer an existing vLLM install unless overridden.
-DEFAULT_VLLM_VENV="${ROOT}/../gemma1bit/venv"
+DEFAULT_VLLM_VENV="${REPO_ROOT}/../gemma1bit/venv"
 VLLM_VENV="${VLLM_VENV:-$DEFAULT_VLLM_VENV}"
 if [[ -x "${VLLM_VENV}/bin/python" ]]; then
   VLLM_PYTHON="${VLLM_PYTHON:-${VLLM_VENV}/bin/python}"
@@ -45,7 +44,6 @@ else
   VLLM_PYTHON="${VLLM_PYTHON:-python3}"
 fi
 
-# Sensible fallbacks if .env keys are missing
 MODEL_PATH="${MODEL_PATH:-Qwen/Qwen2.5-3B-Instruct}"
 SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-Qwen2.5-3B-Instruct}"
 VLLM_HOST="${VLLM_HOST:-0.0.0.0}"
@@ -74,7 +72,23 @@ VLLM_PID_FILE="${VLLM_PID_FILE:-${ROOT}/vllm.pid}"
 
 activate_client() {
   # shellcheck disable=SC1091
-  [[ -f .venv/bin/activate ]] && source .venv/bin/activate
+  [[ -f "${REPO_ROOT}/.venv/bin/activate" ]] && source "${REPO_ROOT}/.venv/bin/activate"
+}
+
+server_config_json() {
+  python3 -c '
+import json, os
+print(json.dumps({
+  "engine": "vllm",
+  "model_path": os.environ.get("MODEL_PATH", ""),
+  "served_model_name": os.environ.get("SERVED_MODEL_NAME", ""),
+  "port": int(os.environ.get("VLLM_PORT", "8000")),
+  "gpu_memory_utilization": float(os.environ.get("GPU_MEMORY_UTILIZATION", "0.9")),
+  "max_model_len": int(os.environ.get("MAX_MODEL_LEN", "4096")),
+  "max_num_seqs": int(os.environ.get("MAX_NUM_SEQS", "256")),
+  "quantization": os.environ.get("VLLM_QUANTIZATION") or None,
+}))
+'
 }
 
 # Use the model name actually served by vLLM (avoids 404 when .env drifts).
@@ -94,7 +108,12 @@ resolve_served_model() {
 }
 
 stress_common_args() {
+  local cfg
+  cfg="$(server_config_json)"
   printf '%s\n' \
+    --backend gpu \
+    --structured-mode vllm \
+    --server-config "$cfg" \
     --base-url "$BASE_URL" \
     --model "$SERVED_MODEL_NAME" \
     --max-tokens "$MAX_TOKENS" \
@@ -109,10 +128,10 @@ stress_common_args() {
 # Setup
 # ---------------------------------------------------------------------------
 cmd_setup() {
-  python3 -m venv .venv
+  python3 -m venv "${REPO_ROOT}/.venv"
   activate_client
   pip install -U pip
-  pip install -r requirements.txt
+  pip install -r "${REPO_ROOT}/requirements.txt"
 
   if ! "$VLLM_PYTHON" -c "import vllm" >/dev/null 2>&1; then
     echo "vLLM not found at $VLLM_PYTHON" >&2
@@ -164,7 +183,6 @@ cmd_start_vllm_bg() {
     echo "vLLM missing. Run: ./commands.sh setup" >&2
     exit 1
   fi
-  # Ensure HF auth is visible to the child process
   if [[ -n "${HF_TOKEN:-}" ]]; then
     export HF_TOKEN
     export HUGGING_FACE_HUB_TOKEN="${HUGGING_FACE_HUB_TOKEN:-$HF_TOKEN}"
@@ -207,7 +225,6 @@ cmd_stop_vllm() {
     pid="$(cat "$VLLM_PID_FILE")"
     if kill -0 "$pid" 2>/dev/null; then
       kill "$pid" || true
-      # also stop child workers if needed
       sleep 1
       kill -9 "$pid" 2>/dev/null || true
       echo "Stopped vLLM (pid $pid)"
@@ -228,7 +245,12 @@ cmd_health() {
 }
 
 cmd_show_env() {
+  local logical physical ram_gb
+  logical="$(nproc 2>/dev/null || echo "?")"
+  physical="$("${REPO_ROOT}/.venv/bin/python" -c 'import psutil; print(psutil.cpu_count(logical=False) or "?")' 2>/dev/null || echo "?")"
+  ram_gb="$("${REPO_ROOT}/.venv/bin/python" -c 'import psutil; print(round(psutil.virtual_memory().total/1024**3,1))' 2>/dev/null || echo "?")"
   cat <<EOF
+backend=gpu (vLLM)
 MODEL_PATH=$MODEL_PATH
 SERVED_MODEL_NAME=$SERVED_MODEL_NAME
 BASE_URL=$BASE_URL
@@ -243,6 +265,7 @@ STOP_TTFT_MS=$STOP_TTFT_MS STOP_MIN_TPS=$STOP_MIN_TPS
 SWEEP_START=$SWEEP_START SWEEP_MAX=$SWEEP_MAX SWEEP_STEP=$SWEEP_STEP
 SUSTAINED_CONCURRENCY=$SUSTAINED_CONCURRENCY SUSTAINED_WAVES=$SUSTAINED_WAVES
 VLLM_PYTHON=$VLLM_PYTHON
+host_logical_cores=$logical host_physical_cores=$physical ram_total_gb=$ram_gb
 EOF
 }
 
@@ -253,7 +276,7 @@ cmd_stress() {
   resolve_served_model
   activate_client
   mapfile -t common < <(stress_common_args)
-  python stress_test.py \
+  python "${REPO_ROOT}/stress_test.py" \
     --mode single \
     "${common[@]}" \
     --concurrency "$CONCURRENCY" \
@@ -265,7 +288,7 @@ cmd_stress_soak() {
   resolve_served_model
   activate_client
   mapfile -t common < <(stress_common_args)
-  python stress_test.py \
+  python "${REPO_ROOT}/stress_test.py" \
     --mode single \
     "${common[@]}" \
     --concurrency "$CONCURRENCY" \
@@ -277,12 +300,11 @@ cmd_stress_structured() {
   resolve_served_model
   activate_client
   mapfile -t common < <(stress_common_args)
-  # JSON objects need more completion tokens than plain rephrase
   local tok="$MAX_TOKENS"
   if (( tok < 128 )); then
     tok=128
   fi
-  python stress_test.py \
+  python "${REPO_ROOT}/stress_test.py" \
     --mode single \
     "${common[@]}" \
     --concurrency "$CONCURRENCY" \
@@ -292,12 +314,11 @@ cmd_stress_structured() {
     --output "stress_results_${CONCURRENCY}c_structured.json"
 }
 
-# Incremental concurrency until TTFT p95 > STOP_TTFT_MS or tps_min < STOP_MIN_TPS
 cmd_stress_find_limit() {
   resolve_served_model
   activate_client
   mapfile -t common < <(stress_common_args)
-  python stress_test.py \
+  python "${REPO_ROOT}/stress_test.py" \
     --mode sweep \
     "${common[@]}" \
     --sweep-start "$SWEEP_START" \
@@ -307,12 +328,11 @@ cmd_stress_find_limit() {
     --output "stress_results_find_limit.json"
 }
 
-# Hold fixed concurrency for many waves (stability over time)
 cmd_stress_sustained() {
   resolve_served_model
   activate_client
   mapfile -t common < <(stress_common_args)
-  python stress_test.py \
+  python "${REPO_ROOT}/stress_test.py" \
     --mode sustained \
     "${common[@]}" \
     --concurrency "$SUSTAINED_CONCURRENCY" \
@@ -371,7 +391,7 @@ usage() {
   cat <<EOF
 Usage: ./commands.sh <command>
 
-Config: edit .env then restart the server if model/server flags change.
+GPU (vLLM) stress tests. Config: edit .env then restart server if model/flags change.
   ./commands.sh show_env
 
 Lifecycle:

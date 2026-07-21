@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Stress-test vLLM for concurrent rephrasing.
+Stress-test an OpenAI-compatible LLM server for concurrent rephrasing.
+
+Works against vLLM (GPU) or llama.cpp llama-server (CPU).
 
 Modes:
   single     — one concurrency level (default)
@@ -96,6 +98,28 @@ class ResourceSample:
     gpu_temp_c: float | None = None
 
 
+def host_cpu_info() -> dict[str, Any]:
+    """Static host CPU / RAM facts for result JSON and console."""
+    vm = psutil.virtual_memory()
+    return {
+        "cpu_logical_cores": psutil.cpu_count(logical=True),
+        "cpu_physical_cores": psutil.cpu_count(logical=False),
+        "ram_total_gb": round(vm.total / (1024**3), 3),
+        "ram_available_gb": round(vm.available / (1024**3), 3),
+    }
+
+
+def parse_server_config(raw: str | None) -> dict[str, Any]:
+    """Parse --server-config JSON (threads, parallel, etc. from commands.sh)."""
+    if not raw:
+        return {}
+    try:
+        obj = json.loads(raw)
+        return obj if isinstance(obj, dict) else {"raw": raw}
+    except json.JSONDecodeError:
+        return {"raw": raw}
+
+
 def _read_nvidia() -> tuple[float | None, float | None, float | None, float | None]:
     """Return (gpu_util%, vram_used_mb, vram_total_mb, temp_c) or Nones."""
     if not shutil.which("nvidia-smi"):
@@ -112,7 +136,6 @@ def _read_nvidia() -> tuple[float | None, float | None, float | None, float | No
         ).strip().splitlines()
         if not out:
             return None, None, None, None
-        # First GPU
         parts = [p.strip() for p in out[0].split(",")]
         if len(parts) < 4:
             return None, None, None, None
@@ -139,7 +162,6 @@ class ResourceMonitor:
         self.samples: list[ResourceSample] = []
         self._task: asyncio.Task[None] | None = None
         self._stop = asyncio.Event()
-        # Prime psutil cpu_percent so the first real reading is meaningful
         psutil.cpu_percent(interval=None)
 
     def snapshot(self) -> ResourceSample:
@@ -181,7 +203,6 @@ class ResourceMonitor:
             except asyncio.CancelledError:
                 pass
             self._task = None
-        # final sample
         try:
             self.samples.append(self.snapshot())
         except Exception:  # noqa: BLE001
@@ -190,7 +211,7 @@ class ResourceMonitor:
 
     def summary(self) -> dict[str, Any]:
         if not self.samples:
-            return {"samples": 0}
+            return {"samples": 0, **host_cpu_info()}
 
         cpu = [s.cpu_percent for s in self.samples]
         ram_used = [s.ram_used_gb for s in self.samples]
@@ -204,10 +225,13 @@ class ResourceMonitor:
             None,
         )
         ram_total = self.samples[-1].ram_total_gb
+        host = host_cpu_info()
 
         return {
             "samples": len(self.samples),
             "interval_s": self.interval_s,
+            "cpu_logical_cores": host["cpu_logical_cores"],
+            "cpu_physical_cores": host["cpu_physical_cores"],
             "cpu_percent": _series_stats(cpu),
             "ram_used_gb": _series_stats(ram_used),
             "ram_percent": _series_stats(ram_pct),
@@ -231,7 +255,13 @@ def format_resource_line(load: dict[str, Any] | None) -> str:
     gpu = load.get("gpu_util_percent") or {}
     vram = load.get("vram_used_gb") or {}
     ram = load.get("ram_used_gb") or {}
+    cores = load.get("cpu_logical_cores")
+    phys = load.get("cpu_physical_cores")
+    core_bit = ""
+    if cores is not None:
+        core_bit = f"cores={phys}/{cores}(phys/log)  "
     return (
+        f"{core_bit}"
         f"cpu={cpu.get('avg')}/{cpu.get('max')}%  "
         f"gpu={gpu.get('avg')}/{gpu.get('max')}%  "
         f"vram={vram.get('avg')}/{vram.get('max')}GB  "
@@ -250,6 +280,10 @@ def print_system_load(load: dict[str, Any] | None) -> None:
     ram = load.get("ram_used_gb") or {}
     ram_pct = load.get("ram_percent") or {}
     temp = load.get("gpu_temp_c") or {}
+    print(
+        f"  CPU cores: logical={load.get('cpu_logical_cores')}  "
+        f"physical={load.get('cpu_physical_cores')}"
+    )
     print(
         f"  CPU %:     avg={cpu.get('avg')}  max={cpu.get('max')}  min={cpu.get('min')}"
     )
@@ -274,12 +308,19 @@ def print_system_load(load: dict[str, Any] | None) -> None:
     print(f"  samples:   {load.get('samples')} every {load.get('interval_s')}s")
 
 
+def print_server_config(cfg: dict[str, Any] | None) -> None:
+    if not cfg:
+        return
+    print("\nServer config:")
+    for key in sorted(cfg.keys()):
+        print(f"  {key}={cfg[key]}")
+
+
 def parse_structured_text(text: str) -> tuple[dict[str, Any] | None, bool]:
     """Parse model JSON; schema_ok if original+rephrased keys exist."""
     try:
         obj = json.loads(text)
     except json.JSONDecodeError:
-        # tolerate markdown fences
         start = text.find("{")
         end = text.rfind("}")
         if start < 0 or end <= start:
@@ -330,6 +371,29 @@ def slim_summary(summary: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in summary.items() if k not in {"per_request", "sample_outputs", "errors"}}
 
 
+def apply_structured_payload(
+    payload: dict[str, Any],
+    *,
+    structured: bool,
+    structured_mode: str,
+) -> None:
+    if not structured:
+        return
+    if structured_mode == "vllm":
+        # vLLM 0.21+: structured_outputs (guided_json is ignored)
+        payload["structured_outputs"] = {"json": REPHRASE_SCHEMA}
+    elif structured_mode == "openai":
+        # llama.cpp / OpenAI-style JSON schema
+        payload["response_format"] = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "rephrase",
+                "schema": REPHRASE_SCHEMA,
+            },
+        }
+    # "prompt" mode: schema instructions already in system message only
+
+
 async def one_request(
     client: httpx.AsyncClient,
     *,
@@ -338,6 +402,7 @@ async def one_request(
     model: str,
     max_tokens: int,
     structured: bool,
+    structured_mode: str,
     temperature: float,
 ) -> RequestResult:
     sample = REPHRASE_SAMPLES[req_id % len(REPHRASE_SAMPLES)]
@@ -369,9 +434,9 @@ async def one_request(
         "stream": True,
         "stream_options": {"include_usage": True},
     }
-    if structured:
-        # vLLM 0.21+: use structured_outputs (guided_json is ignored)
-        payload["structured_outputs"] = {"json": REPHRASE_SCHEMA}
+    apply_structured_payload(
+        payload, structured=structured, structured_mode=structured_mode
+    )
 
     start = time.perf_counter()
     first_token: float | None = None
@@ -452,6 +517,7 @@ async def run_batch(
     model: str,
     max_tokens: int,
     structured: bool,
+    structured_mode: str,
     temperature: float,
 ) -> dict[str, Any]:
     limits = httpx.Limits(
@@ -473,6 +539,7 @@ async def run_batch(
                     model=model,
                     max_tokens=max_tokens,
                     structured=structured,
+                    structured_mode=structured_mode,
                     temperature=temperature,
                 )
 
@@ -498,6 +565,7 @@ async def run_batch(
         "base_url": base_url,
         "model": model,
         "structured": structured,
+        "structured_mode": structured_mode if structured else None,
         "concurrency": concurrency,
         "total_requests": total_requests,
         "duration_sec": round(duration, 2),
@@ -582,8 +650,31 @@ def print_level_line(summary: dict[str, Any]) -> None:
         print(f"       {load}")
 
 
-def print_report(summary: dict[str, Any], verdict: dict[str, Any]) -> None:
+def result_meta(args: argparse.Namespace) -> dict[str, Any]:
+    return {
+        "backend": args.backend,
+        "host": host_cpu_info(),
+        "server_config": parse_server_config(args.server_config),
+    }
+
+
+def print_report(
+    summary: dict[str, Any],
+    verdict: dict[str, Any],
+    *,
+    meta: dict[str, Any] | None = None,
+) -> None:
     print(json.dumps({"summary": slim_summary(summary), "verdict": verdict}, indent=2))
+    if meta:
+        print_server_config(meta.get("server_config"))
+        host = meta.get("host") or {}
+        if host:
+            print(
+                f"\nHost: logical_cores={host.get('cpu_logical_cores')}  "
+                f"physical_cores={host.get('cpu_physical_cores')}  "
+                f"ram_total={host.get('ram_total_gb')}GB  "
+                f"ram_available={host.get('ram_available_gb')}GB"
+            )
     print_system_load(summary.get("system_load"))
     if summary.get("sample_outputs"):
         print("\nSample outputs:")
@@ -612,6 +703,7 @@ def print_report(summary: dict[str, Any], verdict: dict[str, Any]) -> None:
 
 async def run_single(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     total = args.requests if args.requests > 0 else args.concurrency
+    meta = result_meta(args)
     summary = await run_batch(
         concurrency=args.concurrency,
         total_requests=total,
@@ -619,12 +711,14 @@ async def run_single(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
         model=args.model,
         max_tokens=args.max_tokens,
         structured=args.structured,
+        structured_mode=args.structured_mode,
         temperature=args.temperature,
     )
     verdict = evaluate(summary, ttft_budget_ms=args.ttft_ms, min_tps=args.min_tps)
-    print_report(summary, verdict)
+    print_report(summary, verdict, meta=meta)
     out = {
         "mode": "single",
+        **meta,
         "summary": slim_summary(summary) | {
             "sample_outputs": summary.get("sample_outputs"),
             "errors": summary.get("errors"),
@@ -641,11 +735,20 @@ async def run_sweep(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     levels: list[dict[str, Any]] = []
     limit_hit_at: int | None = None
     reason: str | None = None
+    meta = result_meta(args)
 
     print(
         f"Sweep concurrency {args.sweep_start}..{args.sweep_max} "
         f"step={args.sweep_step}  stop: TTFT p95>{args.stop_ttft_ms}ms "
         f"OR tps_min<{args.stop_min_tps}"
+    )
+    print(f"backend={args.backend}")
+    print_server_config(meta.get("server_config"))
+    host = meta.get("host") or {}
+    print(
+        f"Host: logical_cores={host.get('cpu_logical_cores')}  "
+        f"physical_cores={host.get('cpu_physical_cores')}  "
+        f"ram_total={host.get('ram_total_gb')}GB"
     )
     print("-" * 88)
 
@@ -660,6 +763,7 @@ async def run_sweep(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             model=args.model,
             max_tokens=args.max_tokens,
             structured=args.structured,
+            structured_mode=args.structured_mode,
             temperature=args.temperature,
         )
         row = slim_summary(summary)
@@ -694,6 +798,7 @@ async def run_sweep(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
 
     out = {
         "mode": "sweep",
+        **meta,
         "stop_criteria": {
             "stop_ttft_ms": args.stop_ttft_ms,
             "stop_min_tps": args.stop_min_tps,
@@ -714,7 +819,9 @@ async def run_sweep(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
 async def run_sustained(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     waves: list[dict[str, Any]] = []
     conc = args.concurrency
-    print(f"Sustained: concurrency={conc} waves={args.waves}")
+    meta = result_meta(args)
+    print(f"Sustained: concurrency={conc} waves={args.waves} backend={args.backend}")
+    print_server_config(meta.get("server_config"))
     print("-" * 88)
 
     for w in range(1, args.waves + 1):
@@ -726,6 +833,7 @@ async def run_sustained(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
             model=args.model,
             max_tokens=args.max_tokens,
             structured=args.structured,
+            structured_mode=args.structured_mode,
             temperature=args.temperature,
         )
         row = slim_summary(summary)
@@ -746,6 +854,7 @@ async def run_sustained(args: argparse.Namespace) -> tuple[dict[str, Any], int]:
     tps_mins = [w["tps_min"] for w in waves if w.get("tps_min") is not None]
     out = {
         "mode": "sustained",
+        **meta,
         "concurrency": conc,
         "waves_completed": len(waves),
         "ttft_p95_trend_ms": ttfts,
@@ -768,8 +877,16 @@ async def async_main(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(description="vLLM concurrent rephrasing stress test")
+    p = argparse.ArgumentParser(
+        description="OpenAI-compatible concurrent rephrasing stress test (vLLM / llama.cpp)"
+    )
     p.add_argument("--mode", choices=["single", "sweep", "sustained"], default="single")
+    p.add_argument("--backend", choices=["gpu", "cpu"], default="gpu")
+    p.add_argument(
+        "--server-config",
+        default=os.getenv("SERVER_CONFIG_JSON", ""),
+        help="JSON string with server knobs (threads, parallel, etc.) embedded in results",
+    )
     p.add_argument("--base-url", default=DEFAULT_BASE_URL)
     p.add_argument("--model", default=DEFAULT_MODEL)
     p.add_argument("--concurrency", type=int, default=int(os.getenv("CONCURRENCY", "20")))
@@ -779,9 +896,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--ttft-ms", type=float, default=float(os.getenv("TTFT_MS", "500")))
     p.add_argument("--min-tps", type=float, default=float(os.getenv("MIN_TPS", "4")))
     p.add_argument("--structured", action="store_true")
+    p.add_argument(
+        "--structured-mode",
+        choices=["vllm", "openai", "prompt"],
+        default=os.getenv("STRUCTURED_MODE", "vllm"),
+        help="vllm=structured_outputs; openai=response_format json_schema; prompt=instructions only",
+    )
     p.add_argument("--output", default="stress_results.json")
 
-    # Sweep / stop criteria
     p.add_argument("--sweep-start", type=int, default=int(os.getenv("SWEEP_START", "1")))
     p.add_argument("--sweep-max", type=int, default=int(os.getenv("SWEEP_MAX", "200")))
     p.add_argument("--sweep-step", type=int, default=int(os.getenv("SWEEP_STEP", "5")))

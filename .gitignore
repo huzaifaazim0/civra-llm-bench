@@ -5,3 +5,10 @@ __pycache__/
 *.log
 *.pid
 =5.9
+cpu/bin/
+cpu/models/
+*.gguf
+gpu/.env
+cpu/.env
+# BitNet clone + build artifacts (download/build via cpu/bitnet/README.md)
+cpu/bitnet/microsoft-BitNet/
