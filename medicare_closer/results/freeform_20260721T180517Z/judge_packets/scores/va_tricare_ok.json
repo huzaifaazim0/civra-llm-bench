@@ -1,0 +1,24 @@
+{
+  "scenario_id": "va_tricare_ok",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 2,
+    "redirect_handling": 5,
+    "naturalness": 4,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": null,
+  "strengths": [
+    "Correctly treated VA as coordinatable—not an employer conflict close.",
+    "Reassured changes would not disrupt VA and continued qualification.",
+    "Natural, careful tone on secondary coverage."
+  ],
+  "issues": [
+    "Skipped recording, plan-availability, and explicit SOA after the caller’s bundled 'Yes. I agree.'",
+    "Has not yet named a concrete catalog plan (acceptable for incomplete, but review is still early)."
+  ],
+  "summary": "Key outcome correct: VA does not trigger employer-close; agent coordinates and continues. Soft compliance skips remain. Pass."
+}

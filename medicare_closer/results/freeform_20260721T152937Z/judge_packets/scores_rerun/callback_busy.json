@@ -1,0 +1,21 @@
+{
+  "scenario_id": "callback_busy",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 5,
+    "redirect_handling": 5,
+    "naturalness": 5,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "callback",
+  "detected_plan_id": null,
+  "strengths": [
+    "Asked for a better time",
+    "Locked Thursday 2pm same number",
+    "No sales push"
+  ],
+  "issues": [],
+  "summary": "Clean callback scheduling."
+}

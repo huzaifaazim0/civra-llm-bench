@@ -1,0 +1,23 @@
+{
+  "scenario_id": "side_topic_tangent",
+  "overall_pass": false,
+  "scores": {
+    "compliance_order": 2,
+    "redirect_handling": 4,
+    "naturalness": 3,
+    "outcome_correctness": 2,
+    "plan_choice": 5,
+    "hard_safety": 3
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": null,
+  "strengths": [
+    "Warm ack of baseball story",
+    "Tried to return to Medicare"
+  ],
+  "issues": [
+    "Re-asked recording + decision-maker after already answered",
+    "Never got past early qualification"
+  ],
+  "summary": "Redirect empathy improved; memory/looping still breaks the flow."
+}

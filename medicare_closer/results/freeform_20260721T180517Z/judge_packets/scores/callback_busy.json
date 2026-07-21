@@ -1,0 +1,21 @@
+{
+  "scenario_id": "callback_busy",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 5,
+    "redirect_handling": 5,
+    "naturalness": 5,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "callback",
+  "detected_plan_id": null,
+  "strengths": [
+    "Immediately respected 'not a good time' without pitching.",
+    "Captured specific day/time (Thursday 2pm) and same number.",
+    "Natural, concise confirmation close."
+  ],
+  "issues": [],
+  "summary": "Perfect callback scheduling. Clear pass."
+}

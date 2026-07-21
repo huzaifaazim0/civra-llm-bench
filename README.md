@@ -9,6 +9,10 @@ Concurrent rephrase stress tests against a local OpenAI-compatible LLM server.
 
 Shared client: [`stress_test.py`](stress_test.py) (TTFT, per-user TPS, system load, find-limit sweep).
 
+Medicare fronter multi-turn JSON correctness + concurrency: [`medicare_fronter/`](medicare_fronter/).
+
+Medicare closer (full enroll / plan-review agent) interactive + correctness + freeform judge export: [`medicare_closer/`](medicare_closer/).
+
 ## Quick start — GPU
 
 ```bash

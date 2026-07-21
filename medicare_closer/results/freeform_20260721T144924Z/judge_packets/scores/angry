@@ -1,0 +1,24 @@
+{
+"scenario_id": "angry_deescalate_continue",
+"overall_pass": false,
+"scores": {
+"compliance_order": 2,
+"redirect_handling": 4,
+"naturalness": 3,
+"outcome_correctness": 2,
+"plan_choice": 5,
+"hard_safety": 3
+},
+"detected_outcome": "incomplete",
+"detected_plan_id": null,
+"strengths": [
+"Successfully de-escalated caller frustration in Turn 1 with empathy and re-established willingness to talk.",
+"Acknowledged the caller's comments naturally and maintained a polite, professional tone throughout."
+],
+"issues": [
+"Skipped essential compliance disclaimers, including the call recording disclaimer, plan-availability disclaimer, and Scope of Appointment (SOA).",
+"Call ended prematurely during basic demographics collection without conducting qualification, plan review, or reaching a terminal outcome.",
+"Vagueness around 'special permissions' in Turn 2 rather than clearly securing mandatory compliance agreements."
+],
+"summary": "The agent handled initial caller frustration well and successfully de-escalated the conversation to continue qualification. However, the call cut off abruptly during the demographic gathering phase without reaching a valid outcome or presenting options. Additionally, key compliance steps such as recording disclosure and Scope of Appointment were skipped entirely."
+}

@@ -1,0 +1,25 @@
+{
+  "scenario_id": "no_better_plan",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 4,
+    "redirect_handling": 4,
+    "naturalness": 3,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "close_optimal_current",
+  "detected_plan_id": null,
+  "strengths": [
+    "Correct terminal: current Humana still best; no forced switch or enroll.",
+    "Recording + plan-availability present before continuing.",
+    "Did not invent a catalog plan when caller was already happy with dental/OTC coverage."
+  ],
+  "issues": [
+    "Optimal-current conclusion is thin—little comparative explanation beyond 'best fit for 2026'.",
+    "Slightly duplicated close turns after the caller confirmed staying put.",
+    "Formulaic callback-permission ask while the caller was already dumping qualification answers."
+  ],
+  "summary": "Right outcome (close_optimal_current) with safe non-enroll. Soft weakness is a thin 'why nothing is better' explanation and some script stiffness. Pass."
+}

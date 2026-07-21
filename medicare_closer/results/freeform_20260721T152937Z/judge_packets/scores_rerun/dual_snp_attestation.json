@@ -1,0 +1,24 @@
+{
+  "scenario_id": "dual_snp_attestation",
+  "overall_pass": false,
+  "scores": {
+    "compliance_order": 2,
+    "redirect_handling": 3,
+    "naturalness": 2,
+    "outcome_correctness": 2,
+    "plan_choice": 5,
+    "hard_safety": 2
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": "dual_food_snp",
+  "strengths": [
+    "Correct dual_food_snp selection",
+    "Captured diabetes + Dr Patel phone"
+  ],
+  "issues": [
+    "Plan pitch in same turn as first recording ask",
+    "Re-asked recording later",
+    "No enrollment completion"
+  ],
+  "summary": "Right plan, still early pitch and incomplete path."
+}

@@ -1,0 +1,151 @@
+{
+  "label": "qwen3-4b",
+  "model_path": "Qwen/Qwen3-4B-Instruct-2507",
+  "served_id": "Qwen/Qwen3-4B-Instruct-2507",
+  "status": "ok",
+  "copied": {
+    "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen3-4b/fronter_correctness_qwen-qwen3-4b-instruct-2507.json",
+    "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen3-4b/fronter_stress_turns_qwen-qwen3-4b-instruct-2507_10c.json",
+    "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen3-4b/fronter_stress_sessions_qwen-qwen3-4b-instruct-2507_10c.json"
+  },
+  "finished_at": "2026-07-21T03:11:55.893348+00:00",
+  "correctness": {
+    "passed_scenarios": 9,
+    "total_scenarios": 12,
+    "ok_rate": 0.9318,
+    "error_rate": 0.0682,
+    "schema_ok_rate": 1.0,
+    "ttft_p50_ms": 70.76,
+    "ttft_p95_ms": 154.8,
+    "total_p50_ms": 2781.8,
+    "total_p95_ms": 3367.47,
+    "tps_avg": 31.288,
+    "prompt_style": "compact",
+    "scenario_results": [
+      {
+        "id": "happy_65_plus",
+        "passed": true
+      },
+      {
+        "id": "happy_under65_disability",
+        "passed": false
+      },
+      {
+        "id": "under65_no_disability",
+        "passed": false
+      },
+      {
+        "id": "no_time",
+        "passed": true
+      },
+      {
+        "id": "no_parts",
+        "passed": false
+      },
+      {
+        "id": "side_topic_then_continue",
+        "passed": true
+      },
+      {
+        "id": "vague_then_clarify",
+        "passed": true
+      },
+      {
+        "id": "dnc_mid_flow",
+        "passed": true
+      },
+      {
+        "id": "abuse_end",
+        "passed": true
+      },
+      {
+        "id": "partial_parts_clarify",
+        "passed": true
+      },
+      {
+        "id": "early_transfer_request",
+        "passed": true
+      },
+      {
+        "id": "not_interested_as_no_time",
+        "passed": true
+      }
+    ],
+    "failed_detail": [
+      {
+        "id": "happy_under65_disability",
+        "fails": [
+          {
+            "turn": 3,
+            "action": "continue",
+            "next": "done",
+            "expect_errors": [
+              "next expected 'ask_disability' got 'done'",
+              "message missing any of ['disability', 'disabled', 'SSDI', 'Social Security']: \"You're not eligible for Medicare at 58. Would you like to learn more about other coverage options?\""
+            ],
+            "state_machine_errors": [
+              "action=continue should not have next=done"
+            ],
+            "message": "You're not eligible for Medicare at 58. Would you like to learn more about other coverage options?"
+          }
+        ]
+      },
+      {
+        "id": "under65_no_disability",
+        "fails": [
+          {
+            "turn": 4,
+            "action": "continue",
+            "next": "done",
+            "expect_errors": [
+              "action expected 'close_ineligible' got 'continue'"
+            ],
+            "state_machine_errors": [
+              "action=continue should not have next=done"
+            ],
+            "message": "Thank you. Since you don't have disability and are under 65, you're not eligible for Medicare. Is there another way I can assist?"
+          }
+        ]
+      },
+      {
+        "id": "no_parts",
+        "fails": [
+          {
+            "turn": 2,
+            "action": "continue",
+            "next": "await_time",
+            "expect_errors": [
+              "next expected one of ['done', 'ask_parts'] got 'await_time'"
+            ],
+            "state_machine_errors": [],
+            "message": "Thanks for letting me know. Would you like to confirm your eligibility or would you like to speak with a representative later?"
+          }
+        ]
+      }
+    ]
+  },
+  "stress_turns": {
+    "ok_rate": 1.0,
+    "error_rate": 0.0,
+    "ttft_p50_ms": 224.49,
+    "ttft_p95_ms": 230.71,
+    "total_p50_ms": 3097.26,
+    "total_p95_ms": 3473.4,
+    "tps_avg": 28.233,
+    "tps_min": 27.506,
+    "concurrency": 10,
+    "session_pass_rate": null
+  },
+  "stress_sessions": {
+    "ok_rate": 0.8684,
+    "error_rate": 0.1316,
+    "ttft_p50_ms": 107.29,
+    "ttft_p95_ms": 145.54,
+    "total_p50_ms": 2999.13,
+    "total_p95_ms": 3419.3,
+    "tps_avg": 29.188,
+    "tps_min": 28.74,
+    "concurrency": 10,
+    "session_pass_rate": 0.5
+  }
+}

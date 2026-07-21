@@ -1,0 +1,17 @@
+{
+  "scenario_id": "",
+  "overall_pass": false,
+  "scores": {
+    "compliance_order": 0,
+    "redirect_handling": 0,
+    "naturalness": 0,
+    "outcome_correctness": 0,
+    "plan_choice": 0,
+    "hard_safety": 0
+  },
+  "detected_outcome": "",
+  "detected_plan_id": null,
+  "strengths": [],
+  "issues": [],
+  "summary": ""
+}

@@ -1,0 +1,24 @@
+{
+  "scenario_id": "angry_deescalate_continue",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 4,
+    "redirect_handling": 5,
+    "naturalness": 4,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": null,
+  "strengths": [
+    "Strong de-escalation: apologized, identified self/company, offered keep-it-quick or callback instead of immediate DNC.",
+    "After caller re-engaged, delivered recording + plan-availability and continued the appointment correctly.",
+    "Did not push products while the caller was still frustrated."
+  ],
+  "issues": [
+    "Opening line ('Now is a perfect time…') is slightly pushy before any rapport.",
+    "Transcript ends mid-qualify (callback permission) so full compliance spine is only partially demonstrated."
+  ],
+  "summary": "Correct angry-caller handling: empathize, soft re-ask permission, then resume compliance steps without DNC’ing too early. Outcome incomplete-but-continuing matches expectation. Pass."
+}

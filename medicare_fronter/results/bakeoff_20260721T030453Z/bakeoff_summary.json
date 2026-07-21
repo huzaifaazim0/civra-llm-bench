@@ -1,0 +1,809 @@
+{
+  "generated_at": "2026-07-21T03:30:24.716268+00:00",
+  "stamp": "20260721T030453Z",
+  "models": [
+    {
+      "label": "gemma-4-e4b",
+      "model_path": "google/gemma-4-E4B-it",
+      "served_id": "google/gemma-4-E4B-it",
+      "status": "ok",
+      "copied": {
+        "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/gemma-4-e4b/fronter_correctness_google-gemma-4-e4b-it.json",
+        "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/gemma-4-e4b/fronter_stress_turns_google-gemma-4-e4b-it_10c.json",
+        "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/gemma-4-e4b/fronter_stress_sessions_google-gemma-4-e4b-it_10c.json"
+      },
+      "finished_at": "2026-07-21T03:23:51.673495+00:00",
+      "correctness": {
+        "passed_scenarios": 12,
+        "total_scenarios": 12,
+        "ok_rate": 1.0,
+        "error_rate": 0.0,
+        "schema_ok_rate": 1.0,
+        "ttft_p50_ms": 84.26,
+        "ttft_p95_ms": 187.37,
+        "total_p50_ms": 3508.85,
+        "total_p95_ms": 3843.31,
+        "tps_avg": 26.757,
+        "prompt_style": "compact",
+        "scenario_results": [
+          {
+            "id": "happy_65_plus",
+            "passed": true
+          },
+          {
+            "id": "happy_under65_disability",
+            "passed": true
+          },
+          {
+            "id": "under65_no_disability",
+            "passed": true
+          },
+          {
+            "id": "no_time",
+            "passed": true
+          },
+          {
+            "id": "no_parts",
+            "passed": true
+          },
+          {
+            "id": "side_topic_then_continue",
+            "passed": true
+          },
+          {
+            "id": "vague_then_clarify",
+            "passed": true
+          },
+          {
+            "id": "dnc_mid_flow",
+            "passed": true
+          },
+          {
+            "id": "abuse_end",
+            "passed": true
+          },
+          {
+            "id": "partial_parts_clarify",
+            "passed": true
+          },
+          {
+            "id": "early_transfer_request",
+            "passed": true
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "passed": true
+          }
+        ],
+        "failed_detail": []
+      },
+      "stress_turns": {
+        "ok_rate": 1.0,
+        "error_rate": 0.0,
+        "ttft_p50_ms": 376.87,
+        "ttft_p95_ms": 379.69,
+        "total_p50_ms": 3970.96,
+        "total_p95_ms": 4226.56,
+        "tps_avg": 24.26,
+        "tps_min": 23.659,
+        "concurrency": 10,
+        "session_pass_rate": null
+      },
+      "stress_sessions": {
+        "ok_rate": 1.0,
+        "error_rate": 0.0,
+        "ttft_p50_ms": 153.96,
+        "ttft_p95_ms": 525.15,
+        "total_p50_ms": 3788.21,
+        "total_p95_ms": 4358.76,
+        "tps_avg": 24.884,
+        "tps_min": 22.344,
+        "concurrency": 10,
+        "session_pass_rate": 1.0
+      }
+    },
+    {
+      "label": "phi-4-mini",
+      "model_path": "microsoft/Phi-4-mini-instruct",
+      "served_id": "microsoft/Phi-4-mini-instruct",
+      "status": "ok",
+      "copied": {
+        "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/phi-4-mini/fronter_correctness_microsoft-phi-4-mini-instruct.json",
+        "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/phi-4-mini/fronter_stress_turns_microsoft-phi-4-mini-instruct_10c.json",
+        "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/phi-4-mini/fronter_stress_sessions_microsoft-phi-4-mini-instruct_10c.json"
+      },
+      "finished_at": "2026-07-21T03:16:24.234436+00:00",
+      "correctness": {
+        "passed_scenarios": 8,
+        "total_scenarios": 12,
+        "ok_rate": 0.9091,
+        "error_rate": 0.0909,
+        "schema_ok_rate": 1.0,
+        "ttft_p50_ms": 66.83,
+        "ttft_p95_ms": 140.74,
+        "total_p50_ms": 2853.97,
+        "total_p95_ms": 3309.09,
+        "tps_avg": 32.619,
+        "prompt_style": "compact",
+        "scenario_results": [
+          {
+            "id": "happy_65_plus",
+            "passed": true
+          },
+          {
+            "id": "happy_under65_disability",
+            "passed": true
+          },
+          {
+            "id": "under65_no_disability",
+            "passed": true
+          },
+          {
+            "id": "no_time",
+            "passed": false
+          },
+          {
+            "id": "no_parts",
+            "passed": false
+          },
+          {
+            "id": "side_topic_then_continue",
+            "passed": true
+          },
+          {
+            "id": "vague_then_clarify",
+            "passed": true
+          },
+          {
+            "id": "dnc_mid_flow",
+            "passed": true
+          },
+          {
+            "id": "abuse_end",
+            "passed": true
+          },
+          {
+            "id": "partial_parts_clarify",
+            "passed": false
+          },
+          {
+            "id": "early_transfer_request",
+            "passed": true
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "passed": false
+          }
+        ],
+        "failed_detail": [
+          {
+            "id": "no_time",
+            "fails": [
+              {
+                "turn": 1,
+                "action": "end_abuse",
+                "next": "done",
+                "expect_errors": [
+                  "action expected one of ['close_no_time', 'continue'] got 'end_abuse'"
+                ],
+                "state_machine_errors": [],
+                "message": "I understand. We can continue this conversation later when you have more time. Would you like to schedule a callback or should I end our chat for now?"
+              }
+            ]
+          },
+          {
+            "id": "no_parts",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "continue",
+                "next": "done",
+                "expect_errors": [],
+                "state_machine_errors": [
+                  "action=continue should not have next=done"
+                ],
+                "message": "I understand. Since you don't have Medicare Part A or Part B, you may not be eligible for certain benefits. Would you like to discuss other Medicare options or "
+              }
+            ]
+          },
+          {
+            "id": "partial_parts_clarify",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "continue",
+                "next": "ask_age",
+                "expect_errors": [
+                  "next expected one of ['ask_parts', 'done'] got 'ask_age'"
+                ],
+                "state_machine_errors": [],
+                "message": "Understood. Now, may I know your age to check your eligibility for Medicare Part B?"
+              }
+            ]
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "fails": [
+              {
+                "turn": 1,
+                "action": "end_abuse",
+                "next": "done",
+                "expect_errors": [
+                  "action expected one of ['close_no_time', 'dnc'] got 'end_abuse'"
+                ],
+                "state_machine_errors": [],
+                "message": "I understand. If you change your mind in the future, we're here to help. Have a great day!"
+              }
+            ]
+          }
+        ]
+      },
+      "stress_turns": {
+        "ok_rate": 0.95,
+        "error_rate": 0.05,
+        "ttft_p50_ms": 224.35,
+        "ttft_p95_ms": 226.03,
+        "total_p50_ms": 3335.72,
+        "total_p95_ms": 4072.96,
+        "tps_avg": 27.919,
+        "tps_min": 26.905,
+        "concurrency": 10,
+        "session_pass_rate": null
+      },
+      "stress_sessions": {
+        "ok_rate": 0.8947,
+        "error_rate": 0.1053,
+        "ttft_p50_ms": 121.6,
+        "ttft_p95_ms": 234.36,
+        "total_p50_ms": 3299.84,
+        "total_p95_ms": 3729.38,
+        "tps_avg": 28.039,
+        "tps_min": 26.037,
+        "concurrency": 10,
+        "session_pass_rate": 0.6
+      }
+    },
+    {
+      "label": "qwen2.5-3b",
+      "model_path": "Qwen/Qwen2.5-3B-Instruct",
+      "served_id": "Qwen/Qwen2.5-3B-Instruct",
+      "status": "ok",
+      "copied": {
+        "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen2.5-3b/fronter_correctness_qwen-qwen2-5-3b-instruct.json",
+        "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen2.5-3b/fronter_stress_turns_qwen-qwen2-5-3b-instruct_10c.json",
+        "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen2.5-3b/fronter_stress_sessions_qwen-qwen2-5-3b-instruct_10c.json"
+      },
+      "finished_at": "2026-07-21T03:07:26.113119+00:00",
+      "correctness": {
+        "passed_scenarios": 4,
+        "total_scenarios": 12,
+        "ok_rate": 0.7727,
+        "error_rate": 0.2273,
+        "schema_ok_rate": 1.0,
+        "ttft_p50_ms": 56.34,
+        "ttft_p95_ms": 111.99,
+        "total_p50_ms": 2212.67,
+        "total_p95_ms": 2684.55,
+        "tps_avg": 40.518,
+        "prompt_style": "compact",
+        "scenario_results": [
+          {
+            "id": "happy_65_plus",
+            "passed": false
+          },
+          {
+            "id": "happy_under65_disability",
+            "passed": false
+          },
+          {
+            "id": "under65_no_disability",
+            "passed": false
+          },
+          {
+            "id": "no_time",
+            "passed": true
+          },
+          {
+            "id": "no_parts",
+            "passed": false
+          },
+          {
+            "id": "side_topic_then_continue",
+            "passed": true
+          },
+          {
+            "id": "vague_then_clarify",
+            "passed": true
+          },
+          {
+            "id": "dnc_mid_flow",
+            "passed": false
+          },
+          {
+            "id": "abuse_end",
+            "passed": true
+          },
+          {
+            "id": "partial_parts_clarify",
+            "passed": false
+          },
+          {
+            "id": "early_transfer_request",
+            "passed": false
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "passed": false
+          }
+        ],
+        "failed_detail": [
+          {
+            "id": "happy_65_plus",
+            "fails": [
+              {
+                "turn": 1,
+                "action": "continue",
+                "next": "ask_parts",
+                "expect_errors": [
+                  "state.has_time expected True got None"
+                ],
+                "state_machine_errors": [],
+                "message": "Great! Do you currently have Part A and/or Part B of Medicare?"
+              }
+            ]
+          },
+          {
+            "id": "happy_under65_disability",
+            "fails": [
+              {
+                "turn": 1,
+                "action": "continue",
+                "next": "ask_parts",
+                "expect_errors": [
+                  "state.has_time expected True got None"
+                ],
+                "state_machine_errors": [],
+                "message": "Great! Do you currently have Part A and/or Part B of Medicare?"
+              }
+            ]
+          },
+          {
+            "id": "under65_no_disability",
+            "fails": [
+              {
+                "turn": 1,
+                "action": "continue",
+                "next": "ask_parts",
+                "expect_errors": [
+                  "state.has_time expected True got None"
+                ],
+                "state_machine_errors": [],
+                "message": "Great! Do you have Part A and/or Part B of Medicare?"
+              },
+              {
+                "turn": 3,
+                "action": "continue",
+                "next": "close",
+                "expect_errors": [
+                  "next expected 'ask_disability' got 'close'"
+                ],
+                "state_machine_errors": [],
+                "message": "I'm sorry, but you must be at least 65 years old to qualify for Medicare. Would you like to check your eligibility later or speak with someone else now?"
+              },
+              {
+                "turn": 4,
+                "action": "continue",
+                "next": "close",
+                "expect_errors": [
+                  "action expected 'close_ineligible' got 'continue'",
+                  "next expected 'done' got 'close'",
+                  "state.eligible expected False got None"
+                ],
+                "state_machine_errors": [],
+                "message": "Okay, since you do not have a disability, you are not eligible for Medicare at this time. Would you like to check your eligibility later or speak with someone e"
+              }
+            ]
+          },
+          {
+            "id": "no_parts",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "continue",
+                "next": "close",
+                "expect_errors": [
+                  "next expected one of ['done', 'ask_parts'] got 'close'",
+                  "message missing any of ['thank', 'sorry', 'eligible', 'appreciate', 'Part', 'Medicare', 'confirm', 'have']: 'I see. Is there anything else I can assist you with today?'"
+                ],
+                "state_machine_errors": [],
+                "message": "I see. Is there anything else I can assist you with today?"
+              }
+            ]
+          },
+          {
+            "id": "dnc_mid_flow",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "end_abuse",
+                "next": "done",
+                "expect_errors": [
+                  "action expected 'dnc' got 'end_abuse'"
+                ],
+                "state_machine_errors": [],
+                "message": "I'm sorry to hear that. Is there something specific I can help with or would you like to remove yourself from our calls?"
+              }
+            ]
+          },
+          {
+            "id": "partial_parts_clarify",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "continue",
+                "next": "ask_age",
+                "expect_errors": [
+                  "next expected one of ['ask_parts', 'done'] got 'ask_age'"
+                ],
+                "state_machine_errors": [],
+                "message": "I see. Is there anything else I can assist you with regarding your Medicare Part A?"
+              }
+            ]
+          },
+          {
+            "id": "early_transfer_request",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "transfer",
+                "next": "done",
+                "expect_errors": [
+                  "action expected 'continue' got 'transfer'",
+                  "next expected 'ask_parts' got 'done'"
+                ],
+                "state_machine_errors": [
+                  "action=transfer requires eligible=true",
+                  "action=transfer requires age>=65 or has_disability=true"
+                ],
+                "message": "I'm sorry, but we need to verify a few details first. May I proceed with transferring you now?"
+              }
+            ]
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "fails": [
+              {
+                "turn": 1,
+                "action": "continue",
+                "next": "close",
+                "expect_errors": [
+                  "action expected one of ['close_no_time', 'dnc'] got 'continue'",
+                  "next expected 'done' got 'close'"
+                ],
+                "state_machine_errors": [],
+                "message": "I understand. Is there a specific number where I can reach you if needed?"
+              }
+            ]
+          }
+        ]
+      },
+      "stress_turns": {
+        "ok_rate": 1.0,
+        "error_rate": 0.0,
+        "ttft_p50_ms": 143.45,
+        "ttft_p95_ms": 145.18,
+        "total_p50_ms": 2389.13,
+        "total_p95_ms": 2607.31,
+        "tps_avg": 38.506,
+        "tps_min": 37.936,
+        "concurrency": 10,
+        "session_pass_rate": null
+      },
+      "stress_sessions": {
+        "ok_rate": 0.6842,
+        "error_rate": 0.3158,
+        "ttft_p50_ms": 88.8,
+        "ttft_p95_ms": 182.41,
+        "total_p50_ms": 2346.03,
+        "total_p95_ms": 2718.11,
+        "tps_avg": 38.069,
+        "tps_min": 35.601,
+        "concurrency": 10,
+        "session_pass_rate": 0.4
+      }
+    },
+    {
+      "label": "qwen2.5-7b",
+      "model_path": "Qwen/Qwen2.5-7B-Instruct",
+      "served_id": "Qwen/Qwen2.5-7B-Instruct",
+      "status": "ok",
+      "copied": {
+        "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen2.5-7b/fronter_correctness_qwen-qwen2-5-7b-instruct.json",
+        "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen2.5-7b/fronter_stress_turns_qwen-qwen2-5-7b-instruct_10c.json",
+        "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen2.5-7b/fronter_stress_sessions_qwen-qwen2-5-7b-instruct_10c.json"
+      },
+      "finished_at": "2026-07-21T03:30:24.694903+00:00",
+      "correctness": {
+        "passed_scenarios": 10,
+        "total_scenarios": 12,
+        "ok_rate": 0.9545,
+        "error_rate": 0.0455,
+        "schema_ok_rate": 1.0,
+        "ttft_p50_ms": 119.01,
+        "ttft_p95_ms": 276.51,
+        "total_p50_ms": 6967.67,
+        "total_p95_ms": 7371.14,
+        "tps_avg": 18.364,
+        "prompt_style": "full",
+        "scenario_results": [
+          {
+            "id": "happy_65_plus",
+            "passed": true
+          },
+          {
+            "id": "happy_under65_disability",
+            "passed": false
+          },
+          {
+            "id": "under65_no_disability",
+            "passed": true
+          },
+          {
+            "id": "no_time",
+            "passed": true
+          },
+          {
+            "id": "no_parts",
+            "passed": true
+          },
+          {
+            "id": "side_topic_then_continue",
+            "passed": true
+          },
+          {
+            "id": "vague_then_clarify",
+            "passed": true
+          },
+          {
+            "id": "dnc_mid_flow",
+            "passed": true
+          },
+          {
+            "id": "abuse_end",
+            "passed": true
+          },
+          {
+            "id": "partial_parts_clarify",
+            "passed": false
+          },
+          {
+            "id": "early_transfer_request",
+            "passed": true
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "passed": true
+          }
+        ],
+        "failed_detail": [
+          {
+            "id": "happy_under65_disability",
+            "fails": [
+              {
+                "turn": 3,
+                "action": "close_ineligible",
+                "next": "done",
+                "expect_errors": [
+                  "action expected 'continue' got 'close_ineligible'",
+                  "next expected 'ask_disability' got 'done'",
+                  "message missing any of ['disability', 'disabled', 'SSDI', 'Social Security']: \"Thanks \u2014 you're not yet eligible. Is there something else I can help you with?\""
+                ],
+                "state_machine_errors": [
+                  "close_ineligible when age<65 requires has_disability true/false first"
+                ],
+                "message": "Thanks \u2014 you're not yet eligible. Is there something else I can help you with?"
+              }
+            ]
+          },
+          {
+            "id": "partial_parts_clarify",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "continue",
+                "next": "ask_disability",
+                "expect_errors": [
+                  "next expected one of ['ask_parts', 'done'] got 'ask_disability'",
+                  "message missing any of ['Part B', 'both', 'Part A', 'thank', 'eligible']: 'I see. Do you have any disability that started before age 65?'"
+                ],
+                "state_machine_errors": [],
+                "message": "I see. Do you have any disability that started before age 65?"
+              }
+            ]
+          }
+        ]
+      },
+      "stress_turns": {
+        "ok_rate": 1.0,
+        "error_rate": 0.0,
+        "ttft_p50_ms": 299.53,
+        "ttft_p95_ms": 306.59,
+        "total_p50_ms": 7371.82,
+        "total_p95_ms": 7518.89,
+        "tps_avg": 17.498,
+        "tps_min": 17.388,
+        "concurrency": 10,
+        "session_pass_rate": null
+      },
+      "stress_sessions": {
+        "ok_rate": 0.9474,
+        "error_rate": 0.0526,
+        "ttft_p50_ms": 179.37,
+        "ttft_p95_ms": 189.55,
+        "total_p50_ms": 7084.57,
+        "total_p95_ms": 7400.28,
+        "tps_avg": 17.73,
+        "tps_min": 17.479,
+        "concurrency": 10,
+        "session_pass_rate": 0.8
+      }
+    },
+    {
+      "label": "qwen3-4b",
+      "model_path": "Qwen/Qwen3-4B-Instruct-2507",
+      "served_id": "Qwen/Qwen3-4B-Instruct-2507",
+      "status": "ok",
+      "copied": {
+        "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen3-4b/fronter_correctness_qwen-qwen3-4b-instruct-2507.json",
+        "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen3-4b/fronter_stress_turns_qwen-qwen3-4b-instruct-2507_10c.json",
+        "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/qwen3-4b/fronter_stress_sessions_qwen-qwen3-4b-instruct-2507_10c.json"
+      },
+      "finished_at": "2026-07-21T03:11:55.893348+00:00",
+      "correctness": {
+        "passed_scenarios": 9,
+        "total_scenarios": 12,
+        "ok_rate": 0.9318,
+        "error_rate": 0.0682,
+        "schema_ok_rate": 1.0,
+        "ttft_p50_ms": 70.76,
+        "ttft_p95_ms": 154.8,
+        "total_p50_ms": 2781.8,
+        "total_p95_ms": 3367.47,
+        "tps_avg": 31.288,
+        "prompt_style": "compact",
+        "scenario_results": [
+          {
+            "id": "happy_65_plus",
+            "passed": true
+          },
+          {
+            "id": "happy_under65_disability",
+            "passed": false
+          },
+          {
+            "id": "under65_no_disability",
+            "passed": false
+          },
+          {
+            "id": "no_time",
+            "passed": true
+          },
+          {
+            "id": "no_parts",
+            "passed": false
+          },
+          {
+            "id": "side_topic_then_continue",
+            "passed": true
+          },
+          {
+            "id": "vague_then_clarify",
+            "passed": true
+          },
+          {
+            "id": "dnc_mid_flow",
+            "passed": true
+          },
+          {
+            "id": "abuse_end",
+            "passed": true
+          },
+          {
+            "id": "partial_parts_clarify",
+            "passed": true
+          },
+          {
+            "id": "early_transfer_request",
+            "passed": true
+          },
+          {
+            "id": "not_interested_as_no_time",
+            "passed": true
+          }
+        ],
+        "failed_detail": [
+          {
+            "id": "happy_under65_disability",
+            "fails": [
+              {
+                "turn": 3,
+                "action": "continue",
+                "next": "done",
+                "expect_errors": [
+                  "next expected 'ask_disability' got 'done'",
+                  "message missing any of ['disability', 'disabled', 'SSDI', 'Social Security']: \"You're not eligible for Medicare at 58. Would you like to learn more about other coverage options?\""
+                ],
+                "state_machine_errors": [
+                  "action=continue should not have next=done"
+                ],
+                "message": "You're not eligible for Medicare at 58. Would you like to learn more about other coverage options?"
+              }
+            ]
+          },
+          {
+            "id": "under65_no_disability",
+            "fails": [
+              {
+                "turn": 4,
+                "action": "continue",
+                "next": "done",
+                "expect_errors": [
+                  "action expected 'close_ineligible' got 'continue'"
+                ],
+                "state_machine_errors": [
+                  "action=continue should not have next=done"
+                ],
+                "message": "Thank you. Since you don't have disability and are under 65, you're not eligible for Medicare. Is there another way I can assist?"
+              }
+            ]
+          },
+          {
+            "id": "no_parts",
+            "fails": [
+              {
+                "turn": 2,
+                "action": "continue",
+                "next": "await_time",
+                "expect_errors": [
+                  "next expected one of ['done', 'ask_parts'] got 'await_time'"
+                ],
+                "state_machine_errors": [],
+                "message": "Thanks for letting me know. Would you like to confirm your eligibility or would you like to speak with a representative later?"
+              }
+            ]
+          }
+        ]
+      },
+      "stress_turns": {
+        "ok_rate": 1.0,
+        "error_rate": 0.0,
+        "ttft_p50_ms": 224.49,
+        "ttft_p95_ms": 230.71,
+        "total_p50_ms": 3097.26,
+        "total_p95_ms": 3473.4,
+        "tps_avg": 28.233,
+        "tps_min": 27.506,
+        "concurrency": 10,
+        "session_pass_rate": null
+      },
+      "stress_sessions": {
+        "ok_rate": 0.8684,
+        "error_rate": 0.1316,
+        "ttft_p50_ms": 107.29,
+        "ttft_p95_ms": 145.54,
+        "total_p50_ms": 2999.13,
+        "total_p95_ms": 3419.3,
+        "tps_avg": 29.188,
+        "tps_min": 28.74,
+        "concurrency": 10,
+        "session_pass_rate": 0.5
+      }
+    }
+  ],
+  "policy_notes": [
+    "Dual DNC+abuse flags allowed on end_abuse/dnc",
+    "Ask-again OK on no_parts / no_time (continue accepted)",
+    "Early transfer before eligible remains a HARD fail",
+    "Prompt style auto: compact for small models, full for 7B-class"
+  ]
+}

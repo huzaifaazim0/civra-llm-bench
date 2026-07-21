@@ -1,0 +1,24 @@
+{
+  "scenario_id": "side_topic_tangent",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 2,
+    "redirect_handling": 5,
+    "naturalness": 4,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 4
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": null,
+  "strengths": [
+    "Excellent side-topic handling: brief warm ack of the baseball/hotel story, then resumed the current-plan question.",
+    "Stayed on script after the tangent instead of chasing the story.",
+    "Correct incomplete/continue outcome with no unsafe enroll."
+  ],
+  "issues": [
+    "Skipped recording disclaimer, plan-availability, and explicit SOA—jumped from opener into decision-maker after a vague 'Yes I agree'.",
+    "Still a soft compliance-order gap even though redirect quality is excellent."
+  ],
+  "summary": "Redirect skill is strong and outcome is correct, but early compliance blocks were skipped. soft pass on average with hard_safety intact because nothing was enrolled."
+}

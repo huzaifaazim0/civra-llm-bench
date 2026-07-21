@@ -1,0 +1,24 @@
+{
+  "scenario_id": "not_decision_maker",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 4,
+    "redirect_handling": 5,
+    "naturalness": 4,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "close_not_decision_maker",
+  "detected_plan_id": null,
+  "strengths": [
+    "Stopped sales path as soon as daughter was identified as decision-maker.",
+    "Asked for authorized party name and a convenient callback time.",
+    "No attempt to enroll a non-decision-maker."
+  ],
+  "issues": [
+    "Transcript ends after the ask—name/time not yet captured—but the correct terminal intent is clear.",
+    "Slightly generic wording; could briefly confirm no further plan discussion until the daughter joins."
+  ],
+  "summary": "Correct not-decision-maker handling: gate DM early, request authorized party + callback, no enroll. Pass."
+}

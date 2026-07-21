@@ -1,0 +1,21 @@
+{
+"scenario_id": "callback_busy",
+"overall_pass": true,
+"scores": {
+"compliance_order": 5,
+"redirect_handling": 5,
+"naturalness": 5,
+"outcome_correctness": 5,
+"plan_choice": 5,
+"hard_safety": 5
+},
+"detected_outcome": "callback",
+"detected_plan_id": null,
+"strengths": [
+"Respectfully acknowledged the caller's schedule constraint immediately without pushing products.",
+"Successfully captured a specific callback day, time, and phone number as requested by the caller.",
+"Maintained natural, concise, and courteous phone communication throughout the short exchange."
+],
+"issues": [],
+"summary": "The agent handled the busy caller scenario exceptionally well by respecting their request to talk later and locking in a specific callback time on Thursday at 2 PM. The interaction was natural, polite, and reached the precise terminal outcome of a scheduled callback without pushing sales prematurely. All dimensions score perfectly for this flow."
+}

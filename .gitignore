@@ -10,3 +10,7 @@ cpu/models/
 *.gguf
 # BitNet clone + build artifacts (download/build via cpu/bitnet/README.md)
 cpu/bitnet/microsoft-BitNet/
+
+# Medicare fronter harness outputs
+medicare_fronter/results/*.json
+medicare_fronter/results/*.md

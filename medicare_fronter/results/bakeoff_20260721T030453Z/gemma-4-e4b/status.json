@@ -1,0 +1,100 @@
+{
+  "label": "gemma-4-e4b",
+  "model_path": "google/gemma-4-E4B-it",
+  "served_id": "google/gemma-4-E4B-it",
+  "status": "ok",
+  "copied": {
+    "correctness": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/gemma-4-e4b/fronter_correctness_google-gemma-4-e4b-it.json",
+    "stress_turns": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/gemma-4-e4b/fronter_stress_turns_google-gemma-4-e4b-it_10c.json",
+    "stress_sessions": "/root/.cvr/llm_stress_test/medicare_fronter/results/bakeoff_20260721T030453Z/gemma-4-e4b/fronter_stress_sessions_google-gemma-4-e4b-it_10c.json"
+  },
+  "finished_at": "2026-07-21T03:23:51.673495+00:00",
+  "correctness": {
+    "passed_scenarios": 12,
+    "total_scenarios": 12,
+    "ok_rate": 1.0,
+    "error_rate": 0.0,
+    "schema_ok_rate": 1.0,
+    "ttft_p50_ms": 84.26,
+    "ttft_p95_ms": 187.37,
+    "total_p50_ms": 3508.85,
+    "total_p95_ms": 3843.31,
+    "tps_avg": 26.757,
+    "prompt_style": "compact",
+    "scenario_results": [
+      {
+        "id": "happy_65_plus",
+        "passed": true
+      },
+      {
+        "id": "happy_under65_disability",
+        "passed": true
+      },
+      {
+        "id": "under65_no_disability",
+        "passed": true
+      },
+      {
+        "id": "no_time",
+        "passed": true
+      },
+      {
+        "id": "no_parts",
+        "passed": true
+      },
+      {
+        "id": "side_topic_then_continue",
+        "passed": true
+      },
+      {
+        "id": "vague_then_clarify",
+        "passed": true
+      },
+      {
+        "id": "dnc_mid_flow",
+        "passed": true
+      },
+      {
+        "id": "abuse_end",
+        "passed": true
+      },
+      {
+        "id": "partial_parts_clarify",
+        "passed": true
+      },
+      {
+        "id": "early_transfer_request",
+        "passed": true
+      },
+      {
+        "id": "not_interested_as_no_time",
+        "passed": true
+      }
+    ],
+    "failed_detail": []
+  },
+  "stress_turns": {
+    "ok_rate": 1.0,
+    "error_rate": 0.0,
+    "ttft_p50_ms": 376.87,
+    "ttft_p95_ms": 379.69,
+    "total_p50_ms": 3970.96,
+    "total_p95_ms": 4226.56,
+    "tps_avg": 24.26,
+    "tps_min": 23.659,
+    "concurrency": 10,
+    "session_pass_rate": null
+  },
+  "stress_sessions": {
+    "ok_rate": 1.0,
+    "error_rate": 0.0,
+    "ttft_p50_ms": 153.96,
+    "ttft_p95_ms": 525.15,
+    "total_p50_ms": 3788.21,
+    "total_p95_ms": 4358.76,
+    "tps_avg": 24.884,
+    "tps_min": 22.344,
+    "concurrency": 10,
+    "session_pass_rate": 1.0
+  }
+}

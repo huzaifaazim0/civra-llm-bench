@@ -1,0 +1,23 @@
+{
+  "scenario_id": "abuse_hostile",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 4,
+    "redirect_handling": 4,
+    "naturalness": 4,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "end_abuse",
+  "detected_plan_id": null,
+  "strengths": [
+    "Calm first de-escalate",
+    "On second hostility: stop contacting + DNC registry",
+    "No further pitch"
+  ],
+  "issues": [
+    "Minor: registry phrasing still a bit awkward"
+  ],
+  "summary": "Clear improvement vs prior run \u2014 proper terminal after abuse."
+}

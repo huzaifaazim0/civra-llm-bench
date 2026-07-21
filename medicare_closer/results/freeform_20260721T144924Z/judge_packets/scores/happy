@@ -1,0 +1,23 @@
+{"scenario_id": "happy_enroll_otc",
+"overall_pass": false,
+"scores": {
+"compliance_order": 2,
+"redirect_handling": 3,
+"naturalness": 2,
+"outcome_correctness": 4,
+"plan_choice": 5,
+"hard_safety": 2
+},
+"detected_outcome": "enroll_success",
+"detected_plan_id": "otc_zero",
+"strengths": [
+"Accurately matched the caller's chronic condition (diabetes) and cost concerns to the summit care zero OTC plan (otc_zero).",
+"Verified that the caller had no conflicting employer or VA coverage prior to enrollment."
+],
+"issues": [
+"Failed to obtain or declare a mandatory Scope of Appointment (SOA) before discussing specific plan benefits and enrolling.",
+"Omitted the required plan-availability disclaimer.",
+"Exhibited severe conversational looping, repeatedly asking for recording permission and demographic details across multiple turns."
+],
+"summary": "The agent correctly selected the otc_zero plan for a non-dual caller with diabetes looking for low costs, reaching the intended enrollment outcome. However, the call failed hard safety protocols by missing the mandatory Scope of Appointment (SOA) agreement prior to plan presentation and enrollment. Additionally, the agent suffered from poor naturalness due to verbatim re-asking of recording disclaimers and information requests across turns."
+}

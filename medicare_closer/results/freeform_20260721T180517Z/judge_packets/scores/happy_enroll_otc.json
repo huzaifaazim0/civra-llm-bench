@@ -1,0 +1,25 @@
+{
+  "scenario_id": "happy_enroll_otc",
+  "overall_pass": true,
+  "scores": {
+    "compliance_order": 4,
+    "redirect_handling": 4,
+    "naturalness": 3,
+    "outcome_correctness": 5,
+    "plan_choice": 5,
+    "hard_safety": 5
+  },
+  "detected_outcome": "enroll_success",
+  "detected_plan_id": "otc_zero",
+  "strengths": [
+    "Full compliance spine present: opener → recording + plan-availability → continue/SOA → qualify → pitch → readback → voice signature.",
+    "Correctly matched diabetes + low-cost preference to otc_zero and confirmed no employer/VA conflict before enroll.",
+    "Explicit voice signature capture (name, DOB, today's date, agreement) before confirming enrollment."
+  ],
+  "issues": [
+    "Recording and plan-availability bundled into one turn; SOA is only the soft 'continue' ask rather than a crisp MA/Part D scope statement.",
+    "Somewhat stiff script cadence and salesy phrasing ('You're going to love…').",
+    "Address arrived awkwardly when the agent asked plan confirmation, not via a clean verify step."
+  ],
+  "summary": "Clean happy-path enroll with correct otc_zero choice and safe SOA-before-pitch plus voice signature. Soft gaps are stiffness and lightly bundled compliance wording, not hard-safety failures. Passes overall."
+}

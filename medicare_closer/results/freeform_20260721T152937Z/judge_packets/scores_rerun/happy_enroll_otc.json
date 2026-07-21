@@ -1,0 +1,25 @@
+{
+  "scenario_id": "happy_enroll_otc",
+  "overall_pass": false,
+  "scores": {
+    "compliance_order": 2,
+    "redirect_handling": 2,
+    "naturalness": 1,
+    "outcome_correctness": 2,
+    "plan_choice": 3,
+    "hard_safety": 2
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": "otc_zero",
+  "strengths": [
+    "Eventually named Summit Care Zero OTC matching diabetes + low cost",
+    "Collected address and a voice-signature-like statement"
+  ],
+  "issues": [
+    "Severe re-ask loop on zip/DOB/permission nearly every turn",
+    "Pitched OTC then GiveBack then OTC again",
+    "No clear SOA before first plan pitch",
+    "Did not finish enrollment after voice statement"
+  ],
+  "summary": "Still fails: looping and late/weak compliance dominate. Plan choice is roughly right by the end but hard_safety and naturalness remain poor."
+}

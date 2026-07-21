@@ -1,0 +1,23 @@
+{
+  "scenario_id": "giveback_vs_medicaid",
+  "overall_pass": false,
+  "scores": {
+    "compliance_order": 2,
+    "redirect_handling": 3,
+    "naturalness": 2,
+    "outcome_correctness": 2,
+    "plan_choice": 3,
+    "hard_safety": 2
+  },
+  "detected_outcome": "incomplete",
+  "detected_plan_id": "dual_food_snp",
+  "strengths": [
+    "Eventually presented Dual Food C-SNP / food card on request"
+  ],
+  "issues": [
+    "Incorrectly discussed GiveBack / SS credit for a Medicaid dual",
+    "SOA incomplete before plan talk",
+    "Call ended mid-pitch"
+  ],
+  "summary": "Food-card redirect eventually ok, but GiveBack explanation for duals is wrong and compliance is weak."
+}

@@ -1,0 +1,24 @@
+{
+"scenario_id": "dual_snp_attestation",
+"overall_pass": false,
+"scores": {
+"compliance_order": 1,
+"redirect_handling": 3,
+"naturalness": 2,
+"outcome_correctness": 2,
+"plan_choice": 5,
+"hard_safety": 2
+},
+"detected_outcome": "incomplete",
+"detected_plan_id": "dual_food_snp",
+"strengths": [
+"Correctly selected the dual_food_snp plan upon learning the caller is dual eligible with diabetes.",
+"Correctly highlighted the food and utility U-card benefits applicable to dual-eligible beneficiaries without misrepresenting it as Part B cash back."
+],
+"issues": [
+"Pushed straight to plan recommendation in Turn 1 without obtaining mandatory call recording permission, plan-availability disclaimer, or Scope of Appointment (SOA).",
+"Failed to complete enrollment, readback, or secure a voice signature before the transcript cut off.",
+"Asked redundant medication questions in Turn 3 after the caller already provided key chronic attestation and PCP information."
+],
+"summary": "The agent accurately identified and pitch-matched the dual_food_snp plan for a dual-eligible caller with diabetes. However, it severely violated compliance sequencing by skipping mandatory disclaimers and Scope of Appointment prior to pitching the plan. The conversation ended abruptly before qualification and enrollment were completed, resulting in an incomplete outcome."
+}

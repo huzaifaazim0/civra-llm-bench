@@ -1,0 +1,833 @@
+{
+  "mode": "stress_turns",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "prompt_style": "full",
+  "base_url": "http://127.0.0.1:8000",
+  "generated_at": "2026-07-21T03:29:49.052002+00:00",
+  "concurrency": 10,
+  "requests": 20,
+  "wall_s": 14.977,
+  "structured_mode": "vllm",
+  "metrics": {
+    "turns": 20,
+    "ok_count": 20,
+    "ok_rate": 1.0,
+    "error_rate": 0.0,
+    "schema_ok_count": 20,
+    "schema_ok_rate": 1.0,
+    "ttft_avg_ms": 245.17,
+    "ttft_p50_ms": 299.53,
+    "ttft_p95_ms": 306.59,
+    "ttft_p99_ms": 309.51,
+    "ttft_max_ms": 309.51,
+    "total_avg_ms": 7294.54,
+    "total_p50_ms": 7371.82,
+    "total_p95_ms": 7518.89,
+    "total_max_ms": 7578.75,
+    "tps_avg": 17.498,
+    "tps_p50": 17.48,
+    "tps_min": 17.388
+  },
+  "per_request": [
+    {
+      "scenario_id": "open",
+      "turn_index": 0,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 309.51,
+      "total_ms": 7518.89,
+      "completion_tokens": 126,
+      "tokens_per_sec": 17.477,
+      "text": "{\n  \"message\": \"Hi, this is Sarah from the Medicare department. Do you have a few minutes?\",\n  \"state\": {\n    \"step\": \"await_time\",\n    \"has_time\": null,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"await_time\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Hi, this is Sarah from the Medicare department. Do you have a few minutes?",
+        "state": {
+          "step": "await_time",
+          "has_time": null,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "await_time",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "yes_time",
+      "turn_index": 1,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 299.53,
+      "total_ms": 7159.2,
+      "completion_tokens": 121,
+      "tokens_per_sec": 17.639,
+      "text": "{\n  \"message\": \"Great! Do you have Medicare Part A and Part B?\",\n  \"state\": {\n    \"step\": \"ask_parts\",\n    \"has_time\": true,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"ask_parts\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Great! Do you have Medicare Part A and Part B?",
+        "state": {
+          "step": "ask_parts",
+          "has_time": true,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "ask_parts",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "has_parts",
+      "turn_index": 2,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 306.59,
+      "total_ms": 6977.92,
+      "completion_tokens": 116,
+      "tokens_per_sec": 17.388,
+      "text": "{\n  \"message\": \"Great! What is your age?\",\n  \"state\": {\n    \"step\": \"ask_age\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"ask_age\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Great! What is your age?",
+        "state": {
+          "step": "ask_age",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "ask_age",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "age_72",
+      "turn_index": 3,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 305.73,
+      "total_ms": 7401.16,
+      "completion_tokens": 124,
+      "tokens_per_sec": 17.476,
+      "text": "{\n  \"message\": \"Thanks \u2014 you're eligible. May I transfer you to a licensed agent?\",\n  \"state\": {\n    \"step\": \"transfer\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": 72,\n    \"has_disability\": null,\n    \"eligible\": true,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"transfer\"\n}",
+      "parsed": {
+        "message": "Thanks \u2014 you're eligible. May I transfer you to a licensed agent?",
+        "state": {
+          "step": "transfer",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": 72,
+          "has_disability": null,
+          "eligible": true,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "transfer"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "disability_yes",
+      "turn_index": 4,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 306.51,
+      "total_ms": 7456.77,
+      "completion_tokens": 125,
+      "tokens_per_sec": 17.482,
+      "text": "{\n  \"message\": \"Thank you. You're eligible. May I transfer you to a licensed agent?\",\n  \"state\": {\n    \"step\": \"transfer\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": 58,\n    \"has_disability\": true,\n    \"eligible\": true,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"transfer\"\n}",
+      "parsed": {
+        "message": "Thank you. You're eligible. May I transfer you to a licensed agent?",
+        "state": {
+          "step": "transfer",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": 58,
+          "has_disability": true,
+          "eligible": true,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "transfer"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "dnc",
+      "turn_index": 5,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 305.96,
+      "total_ms": 7578.75,
+      "completion_tokens": 127,
+      "tokens_per_sec": 17.462,
+      "text": "{\n  \"message\": \"I'm sorry to hear that. We won't contact you again. Have a good day.\",\n  \"state\": {\n    \"step\": \"close\",\n    \"has_time\": true,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": true,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"dnc\"\n}",
+      "parsed": {
+        "message": "I'm sorry to hear that. We won't contact you again. Have a good day.",
+        "state": {
+          "step": "close",
+          "has_time": true,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": true,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "dnc"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "side_topic",
+      "turn_index": 6,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 305.17,
+      "total_ms": 7514.18,
+      "completion_tokens": 126,
+      "tokens_per_sec": 17.478,
+      "text": "{\n  \"message\": \"I understand it's been a hot day. Could you please tell me your age?\",\n  \"state\": {\n    \"step\": \"ask_age\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": true\n    }\n  },\n  \"next\": \"ask_age\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "I understand it's been a hot day. Could you please tell me your age?",
+        "state": {
+          "step": "ask_age",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": true
+          }
+        },
+        "next": "ask_age",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "open",
+      "turn_index": 7,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 306.01,
+      "total_ms": 7514.6,
+      "completion_tokens": 126,
+      "tokens_per_sec": 17.479,
+      "text": "{\n  \"message\": \"Hi, this is Sarah from the Medicare department. Do you have a few minutes?\",\n  \"state\": {\n    \"step\": \"await_time\",\n    \"has_time\": null,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"await_time\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Hi, this is Sarah from the Medicare department. Do you have a few minutes?",
+        "state": {
+          "step": "await_time",
+          "has_time": null,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "await_time",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "yes_time",
+      "turn_index": 8,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 305.3,
+      "total_ms": 7212.84,
+      "completion_tokens": 121,
+      "tokens_per_sec": 17.517,
+      "text": "{\n  \"message\": \"Great! Do you have Medicare Part A and Part B?\",\n  \"state\": {\n    \"step\": \"ask_parts\",\n    \"has_time\": true,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"ask_parts\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Great! Do you have Medicare Part A and Part B?",
+        "state": {
+          "step": "ask_parts",
+          "has_time": true,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "ask_parts",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "has_parts",
+      "turn_index": 9,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 305.36,
+      "total_ms": 6976.55,
+      "completion_tokens": 116,
+      "tokens_per_sec": 17.388,
+      "text": "{\n  \"message\": \"Great! What is your age?\",\n  \"state\": {\n    \"step\": \"ask_age\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"ask_age\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Great! What is your age?",
+        "state": {
+          "step": "ask_age",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "ask_age",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "age_72",
+      "turn_index": 10,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 179.28,
+      "total_ms": 7268.61,
+      "completion_tokens": 124,
+      "tokens_per_sec": 17.491,
+      "text": "{\n  \"message\": \"Thanks \u2014 you're eligible. May I transfer you to a licensed agent?\",\n  \"state\": {\n    \"step\": \"transfer\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": 72,\n    \"has_disability\": null,\n    \"eligible\": true,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"transfer\"\n}",
+      "parsed": {
+        "message": "Thanks \u2014 you're eligible. May I transfer you to a licensed agent?",
+        "state": {
+          "step": "transfer",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": 72,
+          "has_disability": null,
+          "eligible": true,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "transfer"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "disability_yes",
+      "turn_index": 11,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 177.91,
+      "total_ms": 7267.88,
+      "completion_tokens": 124,
+      "tokens_per_sec": 17.489,
+      "text": "{\n  \"message\": \"Great. You're eligible. May I transfer you to a licensed agent?\",\n  \"state\": {\n    \"step\": \"transfer\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": 58,\n    \"has_disability\": true,\n    \"eligible\": true,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"transfer\"\n}",
+      "parsed": {
+        "message": "Great. You're eligible. May I transfer you to a licensed agent?",
+        "state": {
+          "step": "transfer",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": 58,
+          "has_disability": true,
+          "eligible": true,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "transfer"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "dnc",
+      "turn_index": 12,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 177.07,
+      "total_ms": 7427.43,
+      "completion_tokens": 127,
+      "tokens_per_sec": 17.516,
+      "text": "{\n  \"message\": \"I'm sorry to hear that. We won't contact you again. Have a good day.\",\n  \"state\": {\n    \"step\": \"close\",\n    \"has_time\": true,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": true,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"dnc\"\n}",
+      "parsed": {
+        "message": "I'm sorry to hear that. We won't contact you again. Have a good day.",
+        "state": {
+          "step": "close",
+          "has_time": true,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": true,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "dnc"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "side_topic",
+      "turn_index": 13,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 186.38,
+      "total_ms": 7371.82,
+      "completion_tokens": 126,
+      "tokens_per_sec": 17.535,
+      "text": "{\n  \"message\": \"I understand it's been a hot day. Could you please tell me your age?\",\n  \"state\": {\n    \"step\": \"ask_age\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": true\n    }\n  },\n  \"next\": \"ask_age\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "I understand it's been a hot day. Could you please tell me your age?",
+        "state": {
+          "step": "ask_age",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": true
+          }
+        },
+        "next": "ask_age",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "open",
+      "turn_index": 14,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 177.16,
+      "total_ms": 7405.85,
+      "completion_tokens": 126,
+      "tokens_per_sec": 17.431,
+      "text": "{\n  \"message\": \"Hi, this is Sarah from the Medicare department. Do you have a few minutes?\",\n  \"state\": {\n    \"step\": \"await_time\",\n    \"has_time\": null,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"await_time\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Hi, this is Sarah from the Medicare department. Do you have a few minutes?",
+        "state": {
+          "step": "await_time",
+          "has_time": null,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "await_time",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "yes_time",
+      "turn_index": 15,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 183.17,
+      "total_ms": 7072.54,
+      "completion_tokens": 121,
+      "tokens_per_sec": 17.563,
+      "text": "{\n  \"message\": \"Great! Do you have Medicare Part A and Part B?\",\n  \"state\": {\n    \"step\": \"ask_parts\",\n    \"has_time\": true,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"ask_parts\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Great! Do you have Medicare Part A and Part B?",
+        "state": {
+          "step": "ask_parts",
+          "has_time": true,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "ask_parts",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "has_parts",
+      "turn_index": 16,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 192.71,
+      "total_ms": 6788.9,
+      "completion_tokens": 116,
+      "tokens_per_sec": 17.586,
+      "text": "{\n  \"message\": \"Great! What is your age?\",\n  \"state\": {\n    \"step\": \"ask_age\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"ask_age\",\n  \"action\": \"continue\"\n}",
+      "parsed": {
+        "message": "Great! What is your age?",
+        "state": {
+          "step": "ask_age",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "ask_age",
+        "action": "continue"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "age_72",
+      "turn_index": 17,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 191.6,
+      "total_ms": 7291.73,
+      "completion_tokens": 124,
+      "tokens_per_sec": 17.464,
+      "text": "{\n  \"message\": \"Thanks \u2014 you're eligible. May I transfer you to a licensed agent?\",\n  \"state\": {\n    \"step\": \"transfer\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": 72,\n    \"has_disability\": null,\n    \"eligible\": true,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"transfer\"\n}",
+      "parsed": {
+        "message": "Thanks \u2014 you're eligible. May I transfer you to a licensed agent?",
+        "state": {
+          "step": "transfer",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": 72,
+          "has_disability": null,
+          "eligible": true,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "transfer"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "disability_yes",
+      "turn_index": 18,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 191.18,
+      "total_ms": 7291.33,
+      "completion_tokens": 124,
+      "tokens_per_sec": 17.464,
+      "text": "{\n  \"message\": \"Great. You're eligible. May I transfer you to a licensed agent?\",\n  \"state\": {\n    \"step\": \"transfer\",\n    \"has_time\": true,\n    \"has_part_a\": true,\n    \"has_part_b\": true,\n    \"age\": 58,\n    \"has_disability\": true,\n    \"eligible\": true,\n    \"flags\": {\n      \"dnc\": false,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"transfer\"\n}",
+      "parsed": {
+        "message": "Great. You're eligible. May I transfer you to a licensed agent?",
+        "state": {
+          "step": "transfer",
+          "has_time": true,
+          "has_part_a": true,
+          "has_part_b": true,
+          "age": 58,
+          "has_disability": true,
+          "eligible": true,
+          "flags": {
+            "dnc": false,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "transfer"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    },
+    {
+      "scenario_id": "dnc",
+      "turn_index": 19,
+      "ok": true,
+      "schema_ok": true,
+      "error": null,
+      "ttft_ms": 191.31,
+      "total_ms": 7393.82,
+      "completion_tokens": 127,
+      "tokens_per_sec": 17.633,
+      "text": "{\n  \"message\": \"I'm sorry to hear that. We won't contact you again. Have a good day.\",\n  \"state\": {\n    \"step\": \"close\",\n    \"has_time\": true,\n    \"has_part_a\": null,\n    \"has_part_b\": null,\n    \"age\": null,\n    \"has_disability\": null,\n    \"eligible\": null,\n    \"flags\": {\n      \"dnc\": true,\n      \"abuse\": false,\n      \"side_topic\": false\n    }\n  },\n  \"next\": \"done\",\n  \"action\": \"dnc\"\n}",
+      "parsed": {
+        "message": "I'm sorry to hear that. We won't contact you again. Have a good day.",
+        "state": {
+          "step": "close",
+          "has_time": true,
+          "has_part_a": null,
+          "has_part_b": null,
+          "age": null,
+          "has_disability": null,
+          "eligible": null,
+          "flags": {
+            "dnc": true,
+            "abuse": false,
+            "side_topic": false
+          }
+        },
+        "next": "done",
+        "action": "dnc"
+      },
+      "action_ok": true,
+      "next_ok": true,
+      "state_ok": true,
+      "message_ok": true,
+      "flags_ok": true,
+      "state_machine_ok": true,
+      "expect_errors": [],
+      "schema_errors": [],
+      "state_machine_errors": []
+    }
+  ]
+}
