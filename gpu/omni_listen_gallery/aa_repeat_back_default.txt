@@ -1,0 +1,8 @@
+label=repeat_back
+input=in_repeat_back.wav
+wall_sec=19.73
+audio_duration_sec=13.38
+rtf=0.6781849932815185
+
+TEXT:
+March 12, 1958. That's correct. If you have any other questions or need further assistance, feel free to let me know.

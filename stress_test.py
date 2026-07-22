@@ -434,6 +434,9 @@ async def one_request(
         "stream": True,
         "stream_options": {"include_usage": True},
     }
+    # Qwen3 MoE: disable chain-of-thought so stress measures useful output tokens.
+    if os.getenv("DISABLE_THINKING", "1") not in ("0", "false", "False"):
+        payload["chat_template_kwargs"] = {"enable_thinking": False}
     apply_structured_payload(
         payload, structured=structured, structured_mode=structured_mode
     )

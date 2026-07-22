@@ -1,0 +1,113 @@
+{
+  "ok": true,
+  "stt": "ifw",
+  "stt_streaming": false,
+  "llm": "7b",
+  "llm_model_expected": "Qwen/Qwen2.5-7B-Instruct",
+  "llm_model_served": "Qwen/Qwen2.5-7B-Instruct",
+  "tts": "neutts",
+  "tts_streaming": true,
+  "placement": {
+    "llm": "gpu",
+    "stt": "cuda",
+    "tts": "gpu",
+    "moe_exclusive": false,
+    "note": "3B/7B allow co-residency if free VRAM permits"
+  },
+  "stop_ttfa_ms": 4000.0,
+  "stop_error_rate": 0.05,
+  "gpu_before": {
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA RTX 4000 SFF Ada Generation",
+        "util_pct": 8.0,
+        "mem_used_mb": 17246.0,
+        "mem_total_mb": 20475.0
+      }
+    ]
+  },
+  "health": {
+    "stt": true,
+    "llm": true,
+    "tts": true
+  },
+  "warmup": {
+    "ok": true,
+    "e2e_ttfa_ms": 2210.075218230486,
+    "error": null
+  },
+  "mode": "find_limit",
+  "levels": [
+    {
+      "concurrency": 1,
+      "n": 1,
+      "ok": 1,
+      "errors": 0,
+      "error_rate": 0.0,
+      "error_samples": [],
+      "e2e_ttfa_p50": 3197.4524706602097,
+      "e2e_ttfa_p95": 3197.4524706602097,
+      "e2e_ttfa_mean": 3197.4524706602097,
+      "stt_ms_p50": 924.421276897192,
+      "llm_ttft_ms_p50": 52.451975643634796,
+      "tts_ttfa_ms_p50": 796.6670952737331,
+      "e2e_total_ms_p50": 5581.092547625303,
+      "llm_tok_s_mean": 3.651130222704648,
+      "wall_s": 5.581251189112663,
+      "gpu": {
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA RTX 4000 SFF Ada Generation",
+            "util_pct": 22.0,
+            "mem_used_mb": 17246.0,
+            "mem_total_mb": 20475.0
+          }
+        ]
+      }
+    },
+    {
+      "concurrency": 2,
+      "n": 2,
+      "ok": 2,
+      "errors": 0,
+      "error_rate": 0.0,
+      "error_samples": [],
+      "e2e_ttfa_p50": 3942.9042637348175,
+      "e2e_ttfa_p95": 4238.013321533799,
+      "e2e_ttfa_mean": 3942.9042637348175,
+      "stt_ms_p50": 1156.1755631119013,
+      "llm_ttft_ms_p50": 56.939367204904556,
+      "tts_ttfa_ms_p50": 1005.4243169724941,
+      "e2e_total_ms_p50": 6842.383639886975,
+      "llm_tok_s_mean": 3.288043737398804,
+      "wall_s": 7.690598402172327,
+      "gpu": {
+        "gpus": [
+          {
+            "index": 0,
+            "name": "NVIDIA RTX 4000 SFF Ada Generation",
+            "util_pct": 6.0,
+            "mem_used_mb": 17246.0,
+            "mem_total_mb": 20475.0
+          }
+        ]
+      }
+    }
+  ],
+  "max_stable_concurrency": 1,
+  "limit_hit_at": 2,
+  "stop_reason": "e2e_ttfa_p95>4000.0",
+  "gpu_after": {
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA RTX 4000 SFF Ada Generation",
+        "util_pct": 6.0,
+        "mem_used_mb": 17246.0,
+        "mem_total_mb": 20475.0
+      }
+    ]
+  }
+}

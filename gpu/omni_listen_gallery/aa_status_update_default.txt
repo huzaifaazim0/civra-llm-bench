@@ -1,0 +1,8 @@
+label=status_update
+input=in_status_update.wav
+wall_sec=7.66
+audio_duration_sec=5.88
+rtf=0.7672293593220669
+
+TEXT:
+Hey, we had to push back the launch because of a supply chain problem. Anything else you need to know?

@@ -1,0 +1,8 @@
+label=rephrase_short
+input=in_rephrase_short.wav
+wall_sec=10.62
+audio_duration_sec=7.8
+rtf=0.7344456281264082
+
+TEXT:
+A quick brown fox jumps over a lazy dog. If you have any other phrases you need to rephrase, feel free to let me know.

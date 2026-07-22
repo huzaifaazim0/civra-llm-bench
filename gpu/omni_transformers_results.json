@@ -1,0 +1,109 @@
+{
+  "engine": "transformers",
+  "model": "Qwen/Qwen2.5-Omni-3B",
+  "load_sec": 7.73,
+  "audio_to_text": [
+    {
+      "simulated_batch": 1,
+      "note": "sequential single-GPU; not true parallel concurrency",
+      "ok": 1,
+      "failed": 0,
+      "wall_p50_ms": 583.5,
+      "wall_p95_ms": 583.5,
+      "batch_duration_sec": 0.77,
+      "effective_qps": 1.302,
+      "samples": [
+        {
+          "label": "greeting",
+          "text": "system\nYou are Qwen, a virtual human capable of perceiving auditory inputs.\nuser\nYou are a clear, warm phone agent. Listen to the caller and reply helpfully and concisely.\nassistant\nHello! I'm a friendly and helpful phone agent here. How ca"
+        }
+      ]
+    },
+    {
+      "simulated_batch": 2,
+      "note": "sequential single-GPU; not true parallel concurrency",
+      "ok": 2,
+      "failed": 0,
+      "wall_p50_ms": 1856.7,
+      "wall_p95_ms": 3000.4,
+      "batch_duration_sec": 4.08,
+      "effective_qps": 0.49,
+      "samples": [
+        {
+          "label": "greeting",
+          "text": "system\nYou are Qwen, a virtual human capable of perceiving auditory inputs.\nuser\nYou are a clear, warm phone agent. Listen to the caller and reply helpfully and concisely.\nassistant\nHello! I'm a friendly and helpful phone agent here. How ca"
+        },
+        {
+          "label": "medicare_explain",
+          "text": "system\nYou are Qwen, a virtual human capable of perceiving auditory inputs.\nuser\nYou are a clear, warm phone agent. Listen to the caller and reply helpfully and concisely.\nassistant\nWell, Medicare Advantage dental allowances are like a spec"
+        }
+      ]
+    },
+    {
+      "simulated_batch": 4,
+      "note": "sequential single-GPU; not true parallel concurrency",
+      "ok": 4,
+      "failed": 0,
+      "wall_p50_ms": 1849.6,
+      "wall_p95_ms": 3021.1,
+      "batch_duration_sec": 7.92,
+      "effective_qps": 0.505,
+      "samples": [
+        {
+          "label": "greeting",
+          "text": "system\nYou are Qwen, a virtual human capable of perceiving auditory inputs.\nuser\nYou are a clear, warm phone agent. Listen to the caller and reply helpfully and concisely.\nassistant\nHello! I'm a friendly and helpful phone agent here. How ca"
+        },
+        {
+          "label": "medicare_explain",
+          "text": "system\nYou are Qwen, a virtual human capable of perceiving auditory inputs.\nuser\nYou are a clear, warm phone agent. Listen to the caller and reply helpfully and concisely.\nassistant\nWell, Medicare Advantage dental allowances are like a spec"
+        },
+        {
+          "label": "clarify_zip",
+          "text": "system\nYou are Qwen, a virtual human capable of perceiving auditory inputs.\nuser\nYou are a clear, warm phone agent. Listen to the caller and reply helpfully and concisely.\nassistant\nWell, if you're just asking for general IP code informatio"
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "label": "greeting",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "medicare_explain",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "clarify_zip",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "empathy",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "repeat_back",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "longform",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "rephrase_short",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    },
+    {
+      "label": "status_update",
+      "ok": false,
+      "error": "Expected all tensors to be on the same device, but got index is on cuda:0, different from other tensors on cpu (when checking argument in method wrapper_CUDA__index_select)"
+    }
+  ]
+}

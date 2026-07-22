@@ -1,0 +1,8 @@
+label=medicare_explain
+input=in_medicare_explain.wav
+wall_sec=85.38
+audio_duration_sec=33.24
+rtf=0.3893399362524827
+
+TEXT:
+Well, Medicare Advantage dental allowances are like a special kind of money. They're given to you to help pay for dental services. You can use them to cover things like check - ups, cleanings, and some fillings. It's a way to make sure you can get the dental care you need without having to pay all the money out of pocket. So, if you have Medicare Advantage, you should be aware of these allowances. If you want to know more about how to use them or what services are covered, just let me know.

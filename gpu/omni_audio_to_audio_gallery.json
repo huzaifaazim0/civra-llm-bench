@@ -1,0 +1,81 @@
+{
+  "engine": "transformers",
+  "model": "Qwen/Qwen2.5-Omni-3B",
+  "load_sec": 21.29,
+  "audio_to_text": [],
+  "gallery": [
+    {
+      "label": "greeting",
+      "file": "aa_greeting_default.wav",
+      "wall_sec": 7.88,
+      "audio_duration_sec": 5.86,
+      "rtf": 0.743,
+      "text": "Hello! I'm a friendly and helpful phone agent here. How can I assist you today?",
+      "ok": true
+    },
+    {
+      "label": "medicare_explain",
+      "file": "aa_medicare_explain_default.wav",
+      "wall_sec": 85.38,
+      "audio_duration_sec": 33.24,
+      "rtf": 0.389,
+      "text": "Well, Medicare Advantage dental allowances are like a special kind of money. They're given to you to help pay for dental services. You can use them to cover things like check - ups, cleanings, and some fillings. It's a way to make sure you can get the dental care you need without having to pay all the money out of pocket. So, if you have Medicare Advantage, you should be aware of these allowances. If you want to know more about how to use them or what services are covered, just let me know.",
+      "ok": true
+    },
+    {
+      "label": "clarify_zip",
+      "file": "aa_clarify_zip_default.wav",
+      "wall_sec": 56.29,
+      "audio_duration_sec": 25.58,
+      "rtf": 0.454,
+      "text": "Well, if you're just asking for general IP code information, it's not really necessary for me to know your specific IP code. But if you want to know how to find your IP code, you can usually check it by going to a website like WhatIsMyIP.com. They'll give you your IP address and other related information. So, do you have any other questions about IP codes or something else?",
+      "ok": true
+    },
+    {
+      "label": "empathy",
+      "file": "aa_empathy_default.wav",
+      "wall_sec": 17.36,
+      "audio_duration_sec": 11.74,
+      "rtf": 0.676,
+      "text": "I'm sorry to hear that you're frustrated. Maybe there's something new or different about it that you missed. Can you tell me more about what you're going over? It might help me give you better advice.",
+      "ok": true
+    },
+    {
+      "label": "repeat_back",
+      "file": "aa_repeat_back_default.wav",
+      "wall_sec": 19.73,
+      "audio_duration_sec": 13.38,
+      "rtf": 0.678,
+      "text": "March 12, 1958. That's correct. If you have any other questions or need further assistance, feel free to let me know.",
+      "ok": true
+    },
+    {
+      "label": "longform",
+      "file": "aa_longform_default.wav",
+      "wall_sec": 86.94,
+      "audio_duration_sec": 33.5,
+      "rtf": 0.385,
+      "text": "Well, if you already have Original Medicare, you can still enroll in Medicare Advantage plans. These plans are offered by private companies and are part of Medicare. They usually cover more services than Original Medicare, like prescription drugs, dental, and vision. You can enroll in a Medicare Advantage plan during a special enrollment period, which is usually in January or October. But you have to check the specific requirements for your state.If you want to know more about the benefits of Me",
+      "ok": true
+    },
+    {
+      "label": "rephrase_short",
+      "file": "aa_rephrase_short_default.wav",
+      "wall_sec": 10.62,
+      "audio_duration_sec": 7.8,
+      "rtf": 0.734,
+      "text": "A quick brown fox jumps over a lazy dog. If you have any other phrases you need to rephrase, feel free to let me know.",
+      "ok": true
+    },
+    {
+      "label": "status_update",
+      "file": "aa_status_update_default.wav",
+      "wall_sec": 7.66,
+      "audio_duration_sec": 5.88,
+      "rtf": 0.767,
+      "text": "Hey, we had to push back the launch because of a supply chain problem. Anything else you need to know?",
+      "ok": true
+    }
+  ],
+  "note": "vLLM-Omni default deploy needs 2 GPUs; on this 1x20GB box we use transformers. A\u2192T concurrency sims are sequential (one model copy)."
+}

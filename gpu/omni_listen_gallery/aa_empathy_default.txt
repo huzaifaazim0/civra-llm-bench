@@ -1,0 +1,8 @@
+label=empathy
+input=in_empathy.wav
+wall_sec=17.36
+audio_duration_sec=11.74
+rtf=0.6763005217436234
+
+TEXT:
+I'm sorry to hear that you're frustrated. Maybe there's something new or different about it that you missed. Can you tell me more about what you're going over? It might help me give you better advice.

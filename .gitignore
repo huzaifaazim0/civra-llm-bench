@@ -14,3 +14,9 @@ cpu/bitnet/microsoft-BitNet/
 # Medicare fronter harness outputs
 medicare_fronter/results/*.json
 medicare_fronter/results/*.md
+
+# Large local venvs / caches
+omni_venv/
+voice_pipeline/tmp/
+voice_pipeline/results/*.log
+voice_pipeline/results/*.pid

@@ -1,0 +1,8 @@
+label=longform
+input=in_longform.wav
+wall_sec=86.94
+audio_duration_sec=33.5
+rtf=0.3853236477001368
+
+TEXT:
+Well, if you already have Original Medicare, you can still enroll in Medicare Advantage plans. These plans are offered by private companies and are part of Medicare. They usually cover more services than Original Medicare, like prescription drugs, dental, and vision. You can enroll in a Medicare Advantage plan during a special enrollment period, which is usually in January or October. But you have to check the specific requirements for your state.If you want to know more about the benefits of Medicare Advantage or how to enroll, feel free to ask me more.

@@ -1,0 +1,8 @@
+label=greeting
+input=in_greeting.wav
+wall_sec=7.88
+audio_duration_sec=5.86
+rtf=0.7434165161379056
+
+TEXT:
+Hello! I'm a friendly and helpful phone agent here. How can I assist you today?

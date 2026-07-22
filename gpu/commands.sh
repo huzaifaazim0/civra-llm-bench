@@ -52,6 +52,8 @@ GPU_MEMORY_UTILIZATION="${GPU_MEMORY_UTILIZATION:-0.90}"
 MAX_MODEL_LEN="${MAX_MODEL_LEN:-4096}"
 MAX_NUM_SEQS="${MAX_NUM_SEQS:-256}"
 VLLM_QUANTIZATION="${VLLM_QUANTIZATION:-}"
+# AWQ requires float16; default bf16 for non-quant / fp8.
+DTYPE="${DTYPE:-bfloat16}"
 BASE_URL="${BASE_URL:-http://127.0.0.1:${VLLM_PORT}}"
 CONCURRENCY="${CONCURRENCY:-20}"
 REQUESTS="${REQUESTS:-20}"
@@ -87,6 +89,7 @@ print(json.dumps({
   "max_model_len": int(os.environ.get("MAX_MODEL_LEN", "4096")),
   "max_num_seqs": int(os.environ.get("MAX_NUM_SEQS", "256")),
   "quantization": os.environ.get("VLLM_QUANTIZATION") or None,
+  "dtype": os.environ.get("DTYPE", "bfloat16"),
 }))
 '
 }
@@ -149,7 +152,7 @@ vllm_common_args() {
   local -a args=(
     --model "$MODEL_PATH"
     --served-model-name "$SERVED_MODEL_NAME"
-    --dtype bfloat16
+    --dtype "$DTYPE"
     --gpu-memory-utilization "$GPU_MEMORY_UTILIZATION"
     --max-model-len "$MAX_MODEL_LEN"
     --enable-chunked-prefill
@@ -259,6 +262,7 @@ GPU_MEMORY_UTILIZATION=$GPU_MEMORY_UTILIZATION
 MAX_MODEL_LEN=$MAX_MODEL_LEN
 MAX_NUM_SEQS=$MAX_NUM_SEQS
 VLLM_QUANTIZATION=${VLLM_QUANTIZATION:-<none>}
+DTYPE=$DTYPE
 CONCURRENCY=$CONCURRENCY
 TTFT_MS=$TTFT_MS MIN_TPS=$MIN_TPS
 STOP_TTFT_MS=$STOP_TTFT_MS STOP_MIN_TPS=$STOP_MIN_TPS
